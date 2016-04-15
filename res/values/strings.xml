@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">全城达</string>
+    <string name="dummy_button">退出</string>
+    <string name="login_fail">登录失败！</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main_activity2">全城达</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="activity_main2_button1">信息</string>
+    <string name="activity_main2_button2">取件</string>
+    <string name="activity_main2_button3">交接</string>
+    <string name="activity_main2_button4">查询</string>
+    <string name="activity_main2_button5">反馈</string>
+    <string name="scroll_view_1_text_1">Text View 1</string>
+    <string name="scroll_view_1_button_1">Button 1</string>
+    <string name="scroll_view_1_text_2">Text View 2</string>
+    <string name="scroll_view_1_button_2">Button 2</string>
+    <string name="scroll_view_1_text_3">Text View 3</string>
+    <string name="scroll_view_1_button_3">Button 3</string>
+    <string name="scroll_view_1_text_4">Text View 4</string>
+    <string name="scroll_view_1_button_4">Button 4</string>
+    <string name="scroll_view_1_text_5">Text View 5</string>
+    <string name="scroll_view_1_button_5">Button 5</string>
+    <string name="scroll_view_1_text_6">Text View 6</string>
+    <string name="scroll_view_1_button_6">Button 6</string>
+    <string name="scroll_view_2_text_1">Text View 1</string>
+    <string name="scroll_view_2_button_1">Button 1</string>
+    <string name="title_activity_scroll_view1">全城达</string>
+    <string name="title_activity_list12">全城达</string>
+    <string name="title_activity_capture">全城达</string>
+    <string name="imcoming_message_ticker_text">您有新消息: <xliff:g id="text">%0$s</xliff:g></string>
+    <string name="incoming_message_notify_text">Show Notification</string>
+    <string name="incoming_message_view_message_text">this is the text of a previous message.\nkthx. meet u for dinner. cul8r</string>
+    <string name="imcoming_message_view_message2_text">Did you notice that the status bar icon disappeared?</string>
+    <string name="alert_dialog_two_buttons_title">确定要删除此条记录吗？</string>
+    <string name="alert_dialog_two_buttons_title2">确定要返回首页吗？</string>
+    <string name="alert_dialog_two_buttons_title3">确定退出吗？</string>
+    <string name="alert_dialog_ok">确定</string>
+    <string name="alert_dialog_ok2">狠心退出</string>
+    <string name="alert_dialog_cancel">取消</string>
+    <string name="alert_dialog_cancel2">返回应用</string>
+    <string name="title_activity_query">全城达 查询</string>
+    <string name="title_activity_list13">全城达</string>
+    <string name="title_activity_feedback">全城达 投递反馈</string>
+    <string name="select_dialog">Header title</string>
+    <string name="alert_dialog_single_choice">邮件投递情况</string>
+    <string name="feedback_tm_not_uniqe">条码不唯一！请联系后台服务人员！</string>
+    <string name="feedback_no_result">没有查到邮件！请检查输入的邮件条码！</string>
+    <string name="feedback_json_error">查询邮件信息返回结果失败！请检查输入的邮件条码！</string>
+    <string name="feedback_not_input_tm">请先输入（或扫描）邮件条码！</string>
+    <string name="feedback_fail">查询邮件信息失败！请检查网络连接！</string>
+    <string name="account_is_null">请输入ID、密码登录！</string>
+    <string name="jjrtel_is_null">无寄件人电话，无法发送短信！</string>
+    <string name="need_short_message">需要向寄件人发送短信通知吗？</string>
+    <string name="need_short_message_yes">是</string>
+    <string name="need_short_message_no">否</string>
+    <string name="short_message_begin">尊敬的</string>
+    <string name="short_message_middle1">，您发的邮件</string>
+    <string name="short_message_middle2">已由</string>
+    <string name="short_message_end">。欢迎拨打服务电话：4001511185，【邮政全城达】竭诚为您服务！</string>
+    <string name="short_message_sended">短信已发送！</string>
+    <string name="Main_info_SM_middle1">您好！我是全城达揽收员</string>
+    <string name="Main_info_SM_middle2">，将在2小时内上门取件，请准备好您的邮件，谢谢！【邮政全城达】竭诚为您服务！</string>
+    <string name="clear_database">确定要清除全城达本地数据吗？此操作不可恢复！</string>
+    <string name="alert_dialog_text_entry">请完善邮件信息：</string>
+    <string name="alert_dialog_sjrname">*收件人姓名：</string>
+    <string name="alert_dialog_sjraddr">*收件人地址：</string>
+    <string name="alert_dialog_sjrtel">*收件人电话：</string>
+    <string name="alert_dialog_jjrname">寄件人姓名：</string>
+    <string name="alert_dialog_jjraddr">寄件人地址：</string>
+    <string name="alert_dialog_jjrtel">寄件人电话：</string>
+    <string name="alert_dialog_zl">*重量（克）：</string>
+    <string name="alert_dialog_zf">*资费（元）：</string>
+    <string name="alert_dialog_memo">内件品名：</string>
+    <string name="alert_dialog_info_uncomplete">邮件信息不全，请完善邮件信息！</string>
+    <string name="alert_dialog_info_save_fail">邮件信息存储失败！请检查后重试！</string>
+    <string name="alert_dialog_info_save_success">邮件信息存储成功！</string>
+    <string name="no_mail">本次揽收没有没有邮件！</string>
+    <string name="with_mail_begin">本次共揽收</string>
+    <string name="with_mail_end">件！</string>
+    <string name="BaseAnimation"></string>
+    <string name="alert_dialog_receive_result">接收结果：</string>
+    <string name="clear_database_success">全城达本地数据已清除！</string>
+
+    <item name="tag_async_image_view_position" type="id"/>
+
+    <!-- 三级导航相关start -->
+    <string name="third_titlebar_text">声波支付</string>
+    <string name="third_search">搜索中</string>
+    <string name="third_refresh">刷新</string>
+    <string name="third_hint1">手机靠近一点,再靠近一点</string>
+    <string name="third_hint2">请收款方保持在感应区页面</string>
+    <string name="third_timeout">未找到付款人，请重新尝试！</string>
+    <string name="order_num">订   单   号:</string>
+    <string name="order_num2">123456789</string>
+    <string name="order_num3">订单号:123456789</string>
+    <string name="order_num4">订单号:</string>
+    <string name="order_date">收款时间: </string>
+    <string name="order_collectInfo">收款方: </string>
+    <string name="order_paymentInfo">付款方: </string>
+    <string name="order_serial_num">流水号: </string>
+    <string name="order_sum">交易金额: </string>
+    <string name="serach_payment">找到收款人，请等待付款!</string>
+    <string name="total_money">收款金额:</string>
+    <string name="total_money2">100元</string>
+    <string name="total_money3">收款金额:100元</string>
+    <string name="hint_success">收款成功!</string>
+    <string name="payment1">付   款   人:</string>
+    <string name="payment2">王某某</string>
+    <string name="paydate1">到账时间:</string>
+    <string name="paydate2">2014年1月15日</string>
+    <string name="hint_Thank">THANK YOU</string>
+    <string name="hint_paymethod">只要客人手机上安装有中银易付客户端,即可使用声波支付</string>
+    <string name="hint_paycondition">声波支付条件</string>
+    <string name="hint_name">第一个引导页面</string>
+    <string name="hint_payfail">收款失败,请重新尝试...</string>
+    <string name="hint_payagain">重新收款</string>
+    <string name="hint_cancel">取  消</string>
+    <string name="hint_confirm">确  认</string>
+    <!-- 三级导航相关end -->
+
+
+    <!-- ListViewsx效果集合Start -->
+    <string name="menu_donate">Buy me a beer!</string>
+    <string name="menu_beer">Buy me a beer!</string>
+    <string name="menu_beer2">Buy me 2 beers!</string>
+    <string name="menu_beer3">Buy me 5 beers!</string>
+    <string name="menu_beer4">Buy me 10 beers!</string>
+    <string name="menu_github">Github</string>
+    <string name="googlecards">Google cards example</string>
+    <string name="gridview">GridView example</string>
+    <string name="appearance">Appearance Animation</string>
+    <string name="limit">Limit to 2</string>
+    <string name="itemmanipulation">Item Manipulation</string>
+    <string name="gridviewexample">GridView example</string>
+    <string name="draganddrop">Drag and Drop</string>
+    <string name="swipedismiss">Swipe to dismiss</string>
+    <string name="animateremoval">Animate dismiss</string>
+    <string name="removeselected">Remove selected</string>
+    <string name="expandablelistitemadapter">Expand list items</string>
+    <string name="itemdeleted">Item deleted</string>
+    <string name="taptoundo">Tap to undo</string>
+    <string name="explainexpand">Tap on cards to expand or collapse them</string>
+    <string name="expandorcollapsecard">This is card number %d</string>
+
+    <plurals name="countdown_seconds">
+        <item quantity="one">Dismissing in 1...</item>
+        <item quantity="other">Dismissing in %d...</item>
+    </plurals>
+
+    <string name="countdown_dismissing">Dismissing</string>
+
+    <!-- ListViewsx效果集合End -->
+
+
+    <!-- circlemenu -->
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="google">Google</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="wordpress">Wordpress</string>
+    <string name="myspace">Myspace</string>
+    <string name="start_app">Starting application:</string>
+    <!-- circlemenu -->
+
+
+    <!-- 计算器Start -->
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="num3">3</string>
+    <string name="num4">4</string>
+    <string name="num5">5</string>
+    <string name="num6">6</string>
+    <string name="num7">7</string>
+    <string name="num8">8</string>
+    <string name="num9">9</string>
+    <string name="num0">0</string>
+    <string name="pi">π</string>
+    <string name="e">e</string>
+    <string name="and">&amp;</string>
+    <string name="or">|</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+    <string name="multiply">×</string>
+    <string name="divide">÷</string>
+    <string name="sqrt">sqrt</string>
+    <string name="cbrt">cbrt</string>
+    <string name="dot">.</string>
+    <string name="equals">=</string>
+    <string name="clear">c</string>
+    <string name="lparenthesis">(</string>
+    <string name="rparenthesis">)</string>
+    <string name="remainder">%</string>
+    <string name="backspace">←</string>
+    <string name="comma">,</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
+    <string name="tan">tan</string>
+    <string name="log">log</string>
+    <string name="more">…</string>
+    <string name="indepCalText">计算</string>
+    <string name="indepClearText">清空</string>
+    <string name="helpabout">帮助/关于</string>
+    <string name="morefuncs">更多操作</string>
+    <string name="helpContent">	    运算符说明:\n
+	    \t+: 加号\n
+	    \t-: 减号/负号\n
+	    \t*: 乘号,亦可写作×\n
+	    \t/: 除号,亦可写作÷\n
+	    \t%: 取余\n
+	    \t&amp;: 按位与\n
+	    \t|: 按位或\n
+	    \t^: 按位异或\n
+	    \t~: 按位非,其前面没有操作数\n
+	    
+	    
+	 \n常数说明:\n
+	 	\tπ: 值为3.141592653589793,亦可写作PI\n
+	 	\te: 值为2.718281828459045,亦可写作E\n
+	 \n功能说明(涉及度数的单位均为角度):\n
+	  	\tsin: 正弦\n
+	  	\tasin: 反正弦\n
+	  	\tcos: 余弦\n
+	  	\tacos: 反余弦\n
+	  	\ttan: 正切\n
+	  	\tatan: 反正切\n
+	  	\tabs: 绝对值\n
+	  	\texp: e的指定数次幂\n
+	  	\tln: 以e为底,n的对数\n
+	  	\tlog: 以10为底,n的对数\n
+	  	\tpow: a的b次幂,第一个操作数为a,第二个操作数为b,中间用逗号隔开\n</string>
+    <string name="aboutContent">	    本计算器由Freish制作\n\n欢迎使用\n</string>
+    <!-- 计算器End -->
+
+
+    <!-- 自定义进度条Start -->
+    <string name="color">自定义颜色进度条</string>
+    <string name="left">自左向右的进度条</string>
+    <string name="right">自右向左的进度条</string>
+    <string name="indeter">不确定的进度条</string>
+    <!-- 自定义进度条End -->
+
+
+    <!--  -->
+    <string name="gridview1">九宫格1</string>
+    <string name="gridview2">九宫格2</string>
+    <string name="gridview3">九宫格3</string>
+    <string name="gridview4">九宫格4</string>
+    <string name="gridview5">九宫格5</string>
+    <string name="gridview6">九宫格6</string>
+    <string name="gridview7">九宫格7</string>
+    <string name="gridview8">九宫格8</string>
+    <string name="gridview9">九宫格9</string>
+    <!--  -->
+
+
+    <!-- 翻页效果的listView ListForPage  Start -->
+    <string name="textLeft">Preview</string>
+    <string name="textRight">Next</string>
+    <string name="total">Total</string>
+    <string name="current">Current</string>
+    <!-- 翻页效果的listView ListForPage  End -->
+
+
+    <!-- 小米启动 -->
+    <string name="ani_time">350</string>
+    <string name="ani_time2">700</string>
+    <!-- 小米启动 -->
+
+
+    <!-- TabHostMovie -->
+    <string name="up">上一页</string>
+    <string name="next">下一页</string>
+    <!-- TabHostMovie -->
+    <string name="title_activity_receive">全城达</string>
+    <string name="title_activity_main_info">全城达 信息</string>
+    <string name="title_activity_main_setting">全城达 设置</string>
+    <string name="title_activity_parcel_form">ParcelFormActivity</string>
+    <string name="title_activity_receipt">ReceiptActivity</string>
+
+</resources>

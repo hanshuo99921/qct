@@ -1,0 +1,698 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2sp"
+    tools:context="${relativePackage}.${activityClass}" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <!-- 寄件人信息 -->
+
+        <RelativeLayout
+            android:id="@+id/jjr_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/jjr_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:background="#FFFF96"
+                android:text="寄件人信息"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/jjr_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/jjr_textView"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/jjrname_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="姓名"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/jjrname_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+
+                    <requestFocus />
+                </EditText>
+
+                <TextView
+                    android:id="@+id/jjrtel_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="电话/手机"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/jjrtel_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jjr_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/jjr_linearLayout1"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/khdm_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="客户代码"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/khdm_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2sp"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jjr_linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/jjr_linearLayout2"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/jjraddr_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="寄件人地址"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/jjraddr_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 收件人信息 -->
+
+        <RelativeLayout
+            android:id="@+id/sjr_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/sjr_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2sp"
+                android:background="#FFFF96"
+                android:text="收件人信息"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/sjr_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/sjr_textView"
+                android:layout_marginLeft="1sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/sjrname_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="姓名"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/sjrname_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/sjrtel_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="电话/手机"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/sjrtel_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sjr_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/sjr_linearLayout1"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/sjraddr_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="收件人地址"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/sjraddr_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 邮件详细说明 -->
+
+        <RelativeLayout
+            android:id="@+id/yjxxsm_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/yjxxsm_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:background="#FFFF96"
+                android:text="邮件详细说明"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/yjxxsm_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/yjxxsm_textView"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/zl_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="重量（克）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/zl_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/yjxxsm_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/yjxxsm_linearLayout1"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/njpm_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="内件品名"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/njpm_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2sp"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/yjxxsm_linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/yjxxsm_linearLayout2"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/bjje_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="2"
+                    android:text="保价金额（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/bjje_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/yjxxsm_linearLayout4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/yjxxsm_linearLayout3"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/bz_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="备注"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/bz_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+        
+        <!-- 附加服务 -->
+
+        <RelativeLayout
+            android:id="@+id/fjfw_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/fjfw_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:background="#FFFF96"
+                android:text="附加服务"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/fjfw_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/fjfw_textView"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="                " />
+                 
+                <CheckBox
+                    android:id="@+id/fjfw_swfd_checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="实物返单        " />
+
+                <CheckBox
+                    android:id="@+id/fjfw_qt_checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="其它" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 代收货款 -->
+
+        <RelativeLayout
+            android:id="@+id/dshk_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/dshk_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:background="#FFFF96"
+                android:text="代收货款"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/dshk_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/dshk_textView"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/dshk_TextView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="2"
+                    android:text="代收货款（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/dshk_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 寄递费用 -->
+
+        <RelativeLayout
+            android:id="@+id/jdfy_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/jdfy_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2sp"
+                android:background="#FFFF96"
+                android:text="寄递费用"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/jdfy_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/jdfy_textView"
+                android:layout_marginLeft="1sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/yf_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="邮费（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/yf_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/bjf_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="保价费（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/bjf_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:editable="false"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jdfy_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/jdfy_linearLayout1"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/qtf_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:text="其他费（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/qtf_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="15sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/zfy_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:text="总费用（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/zfy_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:editable="false"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 收件人付费 -->
+
+        <RelativeLayout
+            android:id="@+id/sjrff_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/sjrff_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2sp"
+                android:background="#FFFF96"
+                android:text="收件人付费"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/sjrff_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/sjrff_textView"
+                android:layout_marginLeft="1sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/sjrff_TextView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="收件人付（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/sjrff_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 保存或取消按钮 -->
+
+        <RelativeLayout
+            android:id="@+id/button_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2sp"
+            android:layout_marginTop="2sp"
+            android:background="@drawable/border" >
+
+            <Button
+                android:id="@+id/qx_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:enabled="true"
+                android:text="取消"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/bc_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/qx_button"
+                android:enabled="true"
+                android:onClick="saveParcelForm"
+                android:text="保存"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

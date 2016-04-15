@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ABCDEF"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/main_setting_cleardata"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:text="清空数据库" />
+    
+    <Button
+        android:id="@+id/main_setting_updatedata"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/main_setting_cleardata"
+        android:layout_height="40dp"
+        android:layout_margin="20dp"
+        android:text="更新本机数据" />
+    
+    <Button
+        android:id="@+id/main_setting_parcelbill"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/main_setting_updatedata"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        android:layout_margin="20dp"
+        android:text="新面单测试页面" />
+
+</RelativeLayout>

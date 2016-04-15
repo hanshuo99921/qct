@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#0099cc"
+    android:orientation="vertical"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip" >
+
+    <RelativeLayout
+        android:id="@+id/userText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="8dip"
+        android:paddingRight="8dip" >
+
+        <TextView
+            android:id="@+id/list_12_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/list_12_no_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/list_12_no"
+            android:text="." />
+
+        <TextView
+            android:id="@+id/list_12_jjraddr_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_no_label"
+            android:layout_toRightOf="@+id/list_12_no_label"
+            android:text="发件人地址：" />
+
+        <TextView
+            android:id="@+id/list_12_jjraddr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_no_label"
+            android:layout_toRightOf="@+id/list_12_jjraddr_label"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true" />
+
+        <TextView
+            android:id="@+id/list_12_jjrtel_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_jjraddr_label"
+            android:layout_toRightOf="@+id/list_12_no_label"
+            android:text="发件人电话：" />
+
+        <TextView
+            android:id="@+id/list_12_jjrtel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_jjraddr_label"
+            android:layout_toRightOf="@+id/list_12_jjrtel_label" />
+
+        <TextView
+            android:id="@+id/list_12_jjrname_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_jjrtel_label"
+            android:layout_toRightOf="@+id/list_12_no_label"
+            android:text="发件人姓名：" />
+
+        <TextView
+            android:id="@+id/list_12_jjrname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_jjrtel_label"
+            android:layout_toRightOf="@+id/list_12_jjrname_label" />
+
+        <TextView
+            android:id="@+id/list_12_memo_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_jjrname_label"
+            android:layout_toRightOf="@+id/list_12_no_label"
+            android:text="备注：" />
+
+        <TextView
+            android:id="@+id/list_12_memo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_jjrname_label"
+            android:layout_toRightOf="@+id/list_12_memo_label" />
+
+        <TextView
+            android:id="@+id/list_12_pdid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_memo_label"
+            android:layout_toRightOf="@+id/list_12_no_label"
+            android:text="派单ID：" />
+
+        <TextView
+            android:id="@+id/list_12_pdid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_memo_label"
+            android:layout_toRightOf="@+id/list_12_pdid_label" />
+
+        <TextView
+            android:id="@+id/list_12_xfsj_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_pdid_label"
+            android:layout_toRightOf="@+id/list_12_no_label"
+            android:text="下发时间：" />
+
+        <TextView
+            android:id="@+id/list_12_xfsj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_12_pdid_label"
+            android:layout_toRightOf="@+id/list_12_xfsj_label" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lay01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userText"
+         >
+
+        <EditText
+            android:id="@+id/barcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="#8A8C8A"
+            android:textSize="32dp"
+            android:layout_toLeftOf="@+id/input"
+             />
+
+        <ImageButton
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/capture"
+            android:src="@drawable/ic_list12_input2" />
+
+        <ImageButton
+            android:id="@+id/capture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_list12_scan2" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/finish"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="完成本次揽收" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/finish"
+        android:layout_below="@id/lay01"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="vertical"
+            android:stackFromBottom="false"
+            android:transcriptMode="normal" />
+    </LinearLayout>
+
+</RelativeLayout>

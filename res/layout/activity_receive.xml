@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ABCDEF"
+    android:orientation="vertical"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip" >
+
+    <RelativeLayout
+        android:id="@+id/receive_lay01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/receive_barcode"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="#8A8C8A"
+            android:ems="10"
+            android:layout_marginTop="5dp"
+            android:textSize="28dp" >
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/receive_capture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/receive_barcode"
+            android:src="@drawable/ic_list12_scan2" />
+
+        <ImageButton
+            android:id="@+id/receive_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/receive_capture"
+            android:layout_below="@id/receive_barcode"
+            android:src="@drawable/ic_list12_input2" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/receive_finish"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/receive_lay01"
+        android:text="接收" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/receive_finish"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scrollbars="vertical"
+            android:stackFromBottom="false"
+            android:transcriptMode="normal" />
+    </LinearLayout>
+
+</RelativeLayout>

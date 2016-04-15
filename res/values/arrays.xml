@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="select_dialog_items">
+        <item>本人签收</item>
+        <item>物业代收</item>
+        <item>他人代收</item>
+        <item>次日再投</item>
+    </string-array>
+
+</resources>

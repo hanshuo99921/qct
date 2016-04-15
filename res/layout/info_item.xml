@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#0099cc"
+    android:orientation="vertical"
+    android:paddingLeft="8dip"
+    android:paddingRight="8dip" >
+
+    <TextView
+        android:id="@+id/info_item_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/info_item_no_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/info_item_no"
+        android:text="." />
+
+    <TextView
+        android:id="@+id/info_item_jjraddr_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_no_label"
+        android:layout_toRightOf="@+id/info_item_no_label" 
+        android:text="发件人地址："/>
+
+    <TextView
+        android:id="@+id/info_item_jjraddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_no_label"
+        android:layout_toRightOf="@+id/info_item_jjraddr_label" 
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:ellipsize="marquee"/>
+
+    <TextView
+        android:id="@+id/info_item_jjrtel_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_jjraddr_label"
+        android:layout_toRightOf="@+id/info_item_no_label" 
+        android:text="发件人电话："/>
+    <TextView
+        android:id="@+id/info_item_jjrtel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_jjraddr_label"
+        android:layout_toRightOf="@+id/info_item_jjrtel_label" />
+
+    <TextView
+        android:id="@+id/info_item_jjrname_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_jjrtel_label"
+        android:layout_toRightOf="@+id/info_item_no_label" 
+        android:text="发件人姓名："/>
+    <TextView
+        android:id="@+id/info_item_jjrname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_jjrtel_label"
+        android:layout_toRightOf="@+id/info_item_jjrname_label" />
+
+    <TextView
+        android:id="@+id/info_item_memo_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_jjrname_label"
+        android:layout_toRightOf="@+id/info_item_no_label" 
+        android:text="备注："/>
+    <TextView
+        android:id="@+id/info_item_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_jjrname_label"
+        android:layout_toRightOf="@+id/info_item_memo_label" />
+
+    <TextView
+        android:id="@+id/info_item_pdid_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_memo_label"
+        android:layout_toRightOf="@+id/info_item_no_label"
+        android:text="派单ID：" />
+    <TextView
+        android:id="@+id/info_item_pdid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_memo_label"
+        android:layout_toRightOf="@+id/info_item_pdid_label" />
+
+    <TextView
+        android:id="@+id/info_item_xfsj_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_pdid_label"
+        android:layout_toRightOf="@+id/info_item_no_label" 
+        android:text="下发时间："/>
+    <TextView
+        android:id="@+id/info_item_xfsj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_item_pdid_label"
+        android:layout_toRightOf="@+id/info_item_xfsj_label" />
+
+</RelativeLayout>

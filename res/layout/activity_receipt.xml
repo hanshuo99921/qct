@@ -1,0 +1,434 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:orientation="vertical" >
+
+       
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4sp"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFFF96"
+            android:textSize="20sp"
+            android:text="取回执" />
+		
+        <!-- 邮件条码 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:orientation="horizontal" >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="邮件条码:" />
+            <EditText
+                android:id="@+id/receipt_hztm_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8sp"
+                android:layout_weight="1"
+                android:background="#FFEECC"
+                android:ems="10" >
+				<requestFocus/>
+            </EditText>
+        </LinearLayout>
+        
+        <!-- 原邮件条码 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:orientation="horizontal" >
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="原邮件条码:" />
+            <EditText
+                android:id="@+id/receipt_yyjtm_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8sp"
+                android:layout_weight="1"
+                android:background="#FFEECC"
+                android:ems="10" >
+            </EditText>
+        </LinearLayout>
+        
+         <Button
+            android:id="@+id/receipt_save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:enabled="false"
+            android:text="保存" />
+         
+         <!-- 寄件人信息 -->
+
+        <RelativeLayout
+            android:id="@+id/receipt_jjr_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/receipt_jjr_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2dp"
+                android:background="#FFFF96"
+                android:text="寄件人信息"
+                android:textSize="15sp" />
+           
+            <LinearLayout
+                android:id="@+id/receipt_jjr_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_jjr_textView"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_khdm_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:text="客户代码"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/receipt_khdm_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2sp"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="3"
+                    android:background="#FFEECC"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/receipt_jjr_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_jjr_linearLayout1"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_jjrname_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓      名"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_jjrname_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/receipt_jjr_linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_jjr_linearLayout2"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_jjrtel_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话 /手机"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_jjrtel_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/receipt_jjr_linearLayout4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_jjr_linearLayout3"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_jjraddr_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:text="寄件人地址"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_jjraddr_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!-- 收件人信息 -->
+
+        <RelativeLayout
+            android:id="@+id/receipt_sjr_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/receipt_sjr_TextView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2sp"
+                android:background="#FFFF96"
+                android:text="收件人信息"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/receipt_sjr_linearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_sjr_TextView"
+                android:layout_marginLeft="1sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_sjrname_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓      名"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_sjrname_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/receipt_sjr_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_sjr_linearLayout"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_sjrtel_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="电话/手机"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_sjrtel_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/receipt_sjr_linearLayout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_sjr_linearLayout2"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_sjraddr_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:text="收件人地址"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_sjraddr_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+         
+        <!-- 寄递费用 -->
+
+        <RelativeLayout
+            android:id="@+id/receipt_jdfy_Layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:background="@drawable/border" >
+
+            <TextView
+                android:id="@+id/receipt_jdfy_textView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="2sp"
+                android:background="#FFFF96"
+                android:text="寄递费用"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/receipt_jdfy_linearLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_jdfy_textView"
+                android:layout_marginLeft="1sp"
+                android:layout_marginTop="2sp" >
+
+                <TextView
+                    android:id="@+id/receipt_yf_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="邮费（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_yf_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="15sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/receipt_qtf_TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="4"
+                    android:text="其他费（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_qtf_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="2"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/receipt_jdfy_linearLayout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/receipt_jdfy_linearLayout1"
+                android:layout_marginLeft="2sp"
+                android:layout_marginTop="2sp" >
+
+                
+
+                <TextView
+                    android:id="@+id/receipt_zfy_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:text="总费用（元）"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/receipt_zfy_EditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:layout_weight="1"
+                    android:background="#FFEECC"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:editable="false"
+                    android:textSize="15sp" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+        
+        
+    </LinearLayout>
+
+</ScrollView>
