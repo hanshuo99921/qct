@@ -21,9 +21,9 @@ import com.umeng.socialize.sso.QZoneSsoHandler;
 import com.umeng.socialize.sso.TencentWBSsoHandler;
 
 /**
- * ËùÓĞµÄActivity¼Ì³ĞµÄ»ùÀàActivity,°üº¬ÁËActionBar²Ëµ¥
+ * æ‰€æœ‰çš„Activityç»§æ‰¿çš„åŸºç±»Activity,åŒ…å«äº†ActionBarèœå•
  * @author duguang
- * ²©¿ÍµØÖ·:http://blog.csdn.net/duguang77
+ * åšå®¢åœ°å€:http://blog.csdn.net/duguang77
  */
 public abstract class BaseActivity extends Activity {
 
@@ -49,47 +49,47 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	/**
-	 * ÉèÖÃ²¼¾ÖÎÄ¼ş
+	 * è®¾ç½®å¸ƒå±€æ–‡ä»¶
 	 */
 	public abstract void setView();
 
 	/**
-	 * ³õÊ¼»¯²¼¾ÖÎÄ¼şÖĞµÄ¿Ø¼ş
+	 * åˆå§‹åŒ–å¸ƒå±€æ–‡ä»¶ä¸­çš„æ§ä»¶
 	 */
 	public abstract void initView();
 
 	/**
-	 * ÉèÖÃ¿Ø¼şµÄ¼àÌı
+	 * è®¾ç½®æ§ä»¶çš„ç›‘å¬
 	 */
 	public abstract void setListener();
 	
 	private void initData() {
 		SocializeConstants.APPKEY = "52c4c16956240bce2e08eeb0";
-		// Ê×ÏÈÔÚÄúµÄActivityÖĞÌí¼ÓÈçÏÂ³ÉÔ±±äÁ¿
+		// é¦–å…ˆåœ¨æ‚¨çš„Activityä¸­æ·»åŠ å¦‚ä¸‹æˆå‘˜å˜é‡
 		final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share",RequestType.SOCIAL);
 		                                                                             
-		// ÉèÖÃ·ÖÏíÄÚÈİ
-		mController.setShareContent("Android¿ª·¢Õß±Ø±¸BaseAnimationÓ¦ÓÃ,Ò»Ğ©ÏëÒªµÄĞ§¹ûÄÜ¹ı¿ìËÙÕÒµ½,²¢Ìí¼Óµ½×Ô¼ºµÄÓ¦ÓÃÖĞ,×÷Õß²©¿ÍµØÖ·:http://blog.csdn.net/duguang77");
+		// ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		mController.setShareContent("Androidå¼€å‘è€…å¿…å¤‡BaseAnimationåº”ç”¨,ä¸€äº›æƒ³è¦çš„æ•ˆæœèƒ½è¿‡å¿«é€Ÿæ‰¾åˆ°,å¹¶æ·»åŠ åˆ°è‡ªå·±çš„åº”ç”¨ä¸­,ä½œè€…åšå®¢åœ°å€:http://blog.csdn.net/duguang77");
 		
 		
-		// wx967daebe835fbeacÊÇÄãÔÚÎ¢ĞÅ¿ª·¢Æ½Ì¨×¢²áÓ¦ÓÃµÄAppID, ÕâÀïĞèÒªÌæ»»³ÉÄã×¢²áµÄAppID
+		// wx967daebe835fbeacæ˜¯ä½ åœ¨å¾®ä¿¡å¼€å‘å¹³å°æ³¨å†Œåº”ç”¨çš„AppID, è¿™é‡Œéœ€è¦æ›¿æ¢æˆä½ æ³¨å†Œçš„AppID
 		String appID = "wx88818f8c48a95eb4";
-		// Î¢ĞÅÍ¼ÎÄ·ÖÏí±ØĞëÉèÖÃÒ»¸öurl 
+		// å¾®ä¿¡å›¾æ–‡åˆ†äº«å¿…é¡»è®¾ç½®ä¸€ä¸ªurl 
 		String contentUrl = "http://www.umeng.com/social";
-		// Ìí¼ÓÎ¢ĞÅÆ½Ì¨£¬²ÎÊı1Îªµ±Ç°Activity, ²ÎÊı2ÎªÓÃ»§ÉêÇëµÄAppID, ²ÎÊı3Îªµã»÷·ÖÏíÄÚÈİÌø×ªµ½µÄÄ¿±êurl
+		// æ·»åŠ å¾®ä¿¡å¹³å°ï¼Œå‚æ•°1ä¸ºå½“å‰Activity, å‚æ•°2ä¸ºç”¨æˆ·ç”³è¯·çš„AppID, å‚æ•°3ä¸ºç‚¹å‡»åˆ†äº«å†…å®¹è·³è½¬åˆ°çš„ç›®æ ‡url
 		UMWXHandler wxHandler = mController.getConfig().supportWXPlatform(this,appID, contentUrl);
-		//ÉèÖÃ·ÖÏí±êÌâ
-		wxHandler.setWXTitle("Android¿ª·¢Õß±Ø±¸BaseAnimation");
-		// Ö§³ÖÎ¢ĞÅÅóÓÑÈ¦
+		//è®¾ç½®åˆ†äº«æ ‡é¢˜
+		wxHandler.setWXTitle("Androidå¼€å‘è€…å¿…å¤‡BaseAnimation");
+		//æ”¯æŒå¾®ä¿¡æœ‹å‹åœˆ
 		UMWXHandler circleHandler = mController.getConfig().supportWXCirclePlatform(this,appID, contentUrl) ;
-		circleHandler.setCircleTitle("Ò»Ğ©ÏëÒªµÄĞ§¹ûÄÜ¹ı¿ìËÙÕÒµ½,²¢Ìí¼Óµ½×Ô¼ºµÄÓ¦ÓÃÖĞ,BaseAnimation»¹²»´íÅ¶...");
+		circleHandler.setCircleTitle("ä¸€äº›æƒ³è¦çš„æ•ˆæœèƒ½è¿‡å¿«é€Ÿæ‰¾åˆ°,å¹¶æ·»åŠ åˆ°è‡ªå·±çš„åº”ç”¨ä¸­,BaseAnimationè¿˜ä¸é”™å“¦...");
 		
-	//  ²ÎÊı1Îªµ±Ç°Activity£¬ ²ÎÊı2ÎªÓÃ»§µã»÷·ÖÏíÄÚÈİÊ±Ìø×ªµ½µÄÄ¿±êµØÖ·
+	//  å‚æ•°1ä¸ºå½“å‰Activityï¼Œ å‚æ•°2ä¸ºç”¨æˆ·ç‚¹å‡»åˆ†äº«å†…å®¹æ—¶è·³è½¬åˆ°çš„ç›®æ ‡åœ°å€Ö·
 		mController.getConfig().supportQQPlatform(this, "http://www.umeng.com/social");   
 		
 		mController.getConfig().setSsoHandler(new QZoneSsoHandler(this));
 		
-		//ÉèÖÃÌÚÑ¶Î¢²©SSO handler
+		//è®¾ç½®è…¾è®¯å¾®åšSSO handler
 		mController.getConfig().setSsoHandler(new TencentWBSsoHandler());
 		
 		
@@ -132,7 +132,7 @@ public abstract class BaseActivity extends Activity {
 	    super.onActivityResult(requestCode, resultCode, data);
 	    final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share",RequestType.SOCIAL);
 			    
-	    /**Ê¹ÓÃSSOÊÚÈ¨±ØĞëÌí¼ÓÈçÏÂ´úÂë */
+	    /**ä½¿ç”¨SSOæˆæƒå¿…é¡»æ·»åŠ å¦‚ä¸‹ä»£ç  */
 	    UMSsoHandler ssoHandler = mController.getConfig().getSsoHandler(requestCode) ;
 	    if(ssoHandler != null){
 	       ssoHandler.authorizeCallBack(requestCode, resultCode, data);

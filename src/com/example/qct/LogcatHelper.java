@@ -12,7 +12,7 @@ import android.content.Context;
 import android.os.Environment;
 
 /**
- * logÈÕÖ¾Í³¼Æ±£´æ
+ * logæ—¥å¿—ç»Ÿè®¡ä¿å­˜
  *
  * @author way
  *
@@ -27,15 +27,15 @@ public class LogcatHelper {
 
     /**
      *
-     * ³õÊ¼»¯Ä¿Â¼
+     * åˆå§‹åŒ–ç›®å½•
      *
      * */
     public void init(Context context) {
         if (Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED)) {// ÓÅÏÈ±£´æµ½SD¿¨ÖĞ
+                Environment.MEDIA_MOUNTED)) {// ä¼˜å…ˆä¿å­˜åˆ°SDå¡ä¸­
             PATH_LOGCAT = Environment.getExternalStorageDirectory()
                     .getAbsolutePath() + File.separator + "mirror";
-        } else {// Èç¹ûSD¿¨²»´æÔÚ£¬¾Í±£´æµ½±¾Ó¦ÓÃµÄÄ¿Â¼ÏÂ
+        } else {// å¦‚æœSDå¡ä¸å­˜åœ¨ï¼Œå°±ä¿å­˜åˆ°æœ¬åº”ç”¨çš„ç›®å½•ä¸‹
             PATH_LOGCAT = context.getFilesDir().getAbsolutePath()
                     + File.separator + "mirror";
         }
@@ -91,15 +91,15 @@ public class LogcatHelper {
 
             /**
              *
-             * ÈÕÖ¾µÈ¼¶£º*:v , *:d , *:w , *:e , *:f , *:s
+             * æ—¥å¿—ç­‰çº§ï¼š*:v , *:d , *:w , *:e , *:f , *:s
              *
-             * ÏÔÊ¾µ±Ç°mPID³ÌĞòµÄ EºÍWµÈ¼¶µÄÈÕÖ¾.
+             * æ˜¾ç¤ºå½“å‰mPIDç¨‹åºçš„ Eå’ŒWç­‰çº§çš„æ—¥å¿—.
              *
              * */
 
             // cmds = "logcat *:e *:w | grep \"(" + mPID + ")\"";
-            // cmds = "logcat  | grep \"(" + mPID + ")\"";//´òÓ¡ËùÓĞÈÕÖ¾ĞÅÏ¢
-            // cmds = "logcat -s way";//´òÓ¡±êÇ©¹ıÂËĞÅÏ¢
+            // cmds = "logcat  | grep \"(" + mPID + ")\"";//æ‰“å°æ‰€æœ‰æ—¥å¿—ä¿¡æ¯
+            // cmds = "logcat -s way";//æ‰“å°æ ‡ç­¾è¿‡æ»¤ä¿¡æ¯
             cmds = "logcat *:e *:w | grep \"(" + mPID + ")\"";
 
         }

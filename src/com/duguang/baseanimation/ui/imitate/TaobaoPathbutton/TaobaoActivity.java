@@ -1,46 +1,15 @@
 package com.duguang.baseanimation.ui.imitate.TaobaoPathbutton;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.app.AlertDialog;
-import android.app.DownloadManager.Query;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.duguang.baseanimation.ui.base.BaseActivity;
-import com.example.qct.AppConst;
-import com.example.qct.DemoApplication;
 import com.example.qct.Feedback;
 import com.example.qct.List12;
 import com.example.qct.MainSetting;
@@ -48,10 +17,10 @@ import com.example.qct.Main_info;
 import com.example.qct.R;
 import com.example.qct.ReceiptActivity;
 import com.example.qct.ReceiveActivity;
-import com.example.qct.util.DatabaseOpenHelper;
+import com.example.qct.util.UpdateAppManager;
 
 /**
- * ¸ß·ÂÌÔ±¦°´Å¥Ö÷Ò³Ãæ
+ * é«˜ä»¿æ·˜å®æŒ‰é’®ä¸»é¡µé¢
  * 
  * @author
  * 
@@ -61,16 +30,21 @@ public class TaobaoActivity extends BaseActivity {
 	private ComposerLayout clayout;
 	private Context context;
 	private static final String TAG = "TaobaoActivity";
+	
+	private UpdateAppManager updateManager;
 
 	@Override
 	public void setView() {
 		setContentView(R.layout.activity_imitate_taobao);
 		context = this;
+		
+		updateManager = new UpdateAppManager(context);  
+        updateManager.checkUpdateInfo(); 
 	}
 
 	@Override
 	public void initView() {
-		// ÒıÓÃ¿Ø¼ş
+		// å¼•ç”¨æ§ä»¶
 		clayout = (ComposerLayout) findViewById(R.id.test);
 		// clayout.init(new int[] { R.drawable.composer_camera,
 		// R.drawable.composer_music, R.drawable.composer_place,
@@ -85,38 +59,30 @@ public class TaobaoActivity extends BaseActivity {
 
 	@Override
 	public void setListener() {
-		// µã»÷ÊÂ¼ş¼àÌı£¬100+0¶ÔÓ¦composer_camera£¬100+1¶ÔÓ¦composer_music¡­¡­Èç´ËÀàÍÆÄãÓĞ»ú¸ö°´Å¥¾Í¼Ó¼¸¸ö°´Å¥¶¼ĞĞ¡£
+		// ç‚¹å‡»äº‹ä»¶ç›‘å¬ï¼Œ100+0å¯¹åº”composer_cameraï¼Œ100+1å¯¹åº”composer_musicâ€¦â€¦å¦‚æ­¤ç±»æ¨ä½ æœ‰æœºä¸ªæŒ‰é’®å°±åŠ å‡ ä¸ªæŒ‰é’®éƒ½è¡Œã€‚
 		OnClickListener clickit = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				if (v.getId() == 100 + 0) {
-					// Toast.makeText(TaobaoActivity.this, "ĞÅÏ¢...", 0).show();
 					intent.setClass(context, Main_info.class);
 					startActivity(intent);
 				} else if (v.getId() == 100 + 1) {
-					// Toast.makeText(TaobaoActivity.this, "È¡¼ş...", 0).show();
 					intent.setClass(context, List12.class);
 					startActivity(intent);
 				}else if (v.getId() == 100 + 2) {
-					// Toast.makeText(TaobaoActivity.this, "È¡»ØÖ´...", 0).show();
 					intent.setClass(context, ReceiptActivity.class);
 					startActivity(intent);
 				} else if (v.getId() == 100 + 3) {
-					// Toast.makeText(TaobaoActivity.this, "²éÑ¯...", 0).show();
 					intent.setClass(context, com.example.qct.Query.class);
 					startActivity(intent);
 				} else if (v.getId() == 100 + 4) {
-					// Toast.makeText(TaobaoActivity.this, "½ÓÊÕ...",
-					// 0).show();
 					intent.setClass(context, ReceiveActivity.class);
 					startActivity(intent);
 				} else if (v.getId() == 100 + 5) {
-					// Toast.makeText(TaobaoActivity.this, "·´À¡...", 0).show();
 					intent.setClass(context, Feedback.class);
 					startActivity(intent);
 				} else if (v.getId() == 100 + 6) {
-					// Toast.makeText(TaobaoActivity.this, "ÉèÖÃ..", 0).show();
 					intent.setClass(context, MainSetting.class);
 					startActivity(intent);
 				}
@@ -124,16 +90,16 @@ public class TaobaoActivity extends BaseActivity {
 		};
 		clayout.setButtonsOnClickListener(clickit);
 
-		// ÏÂÃæ¼¸¸ö¾ä´¿´â²âÊÔÏÂ¸¸¿Ø¼ş,Êµ¼Ê¿ª·¢ÊÇ¿ÉÒÔÈ¥µô
-		// ÏÂÃæÄØ×¾ä¼ƒ´â”{‡­œyÔ‡ÏÂ¸¸¿Ø¼şücßíücµ¹£¬ŒëHÓÃ†ş•rºò¿ÉÒÔÈ¥µô¡£
+		// ä¸‹é¢å‡ ä¸ªå¥çº¯ç²¹æµ‹è¯•ä¸‹çˆ¶æ§ä»¶,å®é™…å¼€å‘æ˜¯å¯ä»¥å»æ‰
+		// ä¸‹é¢å‘¢å¹¾å¥ç´”ç²¹æ”åšŸæ¸¬è©¦ä¸‹çˆ¶æ§ä»¶é»å””é»å€’ï¼Œå¯¦éš›ç”¨å˜…æ™‚å€™å¯ä»¥å»æ‰ã€‚
 		RelativeLayout rl = (RelativeLayout) findViewById(R.id.rlparent);
 		rl.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				// Toast.makeText(TaobaoActivity.this, "¸¸¿Ø¼ş¿ÉÒÔüc“ôµÄÅ¶!!!",
+				// Toast.makeText(TaobaoActivity.this, "çˆ¶æ§ä»¶å¯ä»¥é»æ“Šçš„å“¦!!!",
 				// 0).show();
-				// System.out.println("¸¸¿Ø¼ş¿ÉÒÔüc“ô¾Í¼´ÏµƒÓßÁ½Ø…ø¡£");
+				// System.out.println("çˆ¶æ§ä»¶å¯ä»¥é»æ“Šå°±å³ç³»å†‡å¡æˆªå’—ã€‚");
 			}
 		});
 

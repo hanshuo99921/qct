@@ -11,9 +11,9 @@ import com.duguang.baseanimation.utils.ApkInfoTool;
 import com.example.qct.R;
 
 /**
- * ¹ØÓÚÒ³Ãæ
+ * å…³äºé¡µé¢
  * @author duguang
- * ²©¿ÍµØÖ·:http://blog.csdn.net/duguang77
+ * åšå®¢åœ°å€:http://blog.csdn.net/duguang77
  */
 public class AboutActivity extends BaseActivity implements OnClickListener {
 	
@@ -30,7 +30,7 @@ public class AboutActivity extends BaseActivity implements OnClickListener {
 		textView_VersionName = (TextView) findViewById(R.id.textView_VersionName);
 		tv_address = (TextView) findViewById(R.id.tv_address);
 		
-		textView_VersionName.setText("°æ±¾ºÅ:"+ApkInfoTool.getVersionName(this));
+		textView_VersionName.setText("ç‰ˆæœ¬å·:"+ApkInfoTool.getVersionName(this));
 	
 	}
 

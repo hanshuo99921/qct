@@ -203,7 +203,7 @@ public class FullscreenActivity extends Activity {
 		Cursor cursor = db.query("pdxx", new String[] { "count(*) num" }, "jsrq is null and lsy = '" + account + "'", null, null, null, null);
 		int num = 0;
 		cursor.moveToFirst();
-		num = cursor.getInt(cursor.getColumnIndex("num")); // ÒÑ¾­»ñÈ¡µ½±¾»úµ«ÉĞÎ´½ÓÊÕµÄÅÉµ¥ÌõÊı
+		num = cursor.getInt(cursor.getColumnIndex("num")); // å·²ç»è·å–åˆ°æœ¬æœºä½†å°šæœªæ¥æ”¶çš„æ´¾å•æ¡æ•°
 		DemoApplication app = (DemoApplication) getApplication();
 		app.put("num", num);
 		app.put("m", 0);
@@ -237,7 +237,7 @@ public class FullscreenActivity extends Activity {
 						try {
 							Log.d("TAG", response.getString("success"));
 							if (Boolean.parseBoolean(response.getString("success"))) {
-								// µÇÂ¼³É¹¦
+								// ï¿½ï¿½Â¼ï¿½É¹ï¿½
 								Log.d(TAG, response.getString("msg"));
 
 								service.save(account, pwd);
@@ -260,7 +260,7 @@ public class FullscreenActivity extends Activity {
 								startActivity(intent);
 								// finish();
 							} else {
-								// µÇÂ¼Ê§°Ü
+								// ï¿½ï¿½Â¼Ê§ï¿½ï¿½
 								Toast.makeText(getApplicationContext(), response.getString("msg"), Toast.LENGTH_SHORT).show();
 							}
 						} catch (JSONException e) {

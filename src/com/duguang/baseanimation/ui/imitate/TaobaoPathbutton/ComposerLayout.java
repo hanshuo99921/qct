@@ -13,22 +13,22 @@ import android.widget.RelativeLayout;
 @SuppressLint("ViewConstructor")
 public class ComposerLayout extends RelativeLayout {
 
-	public static byte RIGHTBOTTOM = 1, CENTERBOTTOM = 2, LEFTBOTTOM = 3,
-			LEFTCENTER = 4, LEFTTOP = 5, CENTERTOP = 6, RIGHTTOP = 7,
-			RIGHTCENTER = 8;
-	private boolean hasInit = false; // ³õÊ¼»¯…øÎ´
-	private boolean areButtonsShowing = false;// ÓĞƒÓÕ¹é_
+	public static byte RIGHTBOTTOM = 1, CENTERBOTTOM = 2, LEFTBOTTOM = 3, LEFTCENTER = 4, LEFTTOP = 5, CENTERTOP = 6,
+			RIGHTTOP = 7, RIGHTCENTER = 8;
+
+	private boolean hasInit = false; // åˆå§‹åŒ–å’—æœª
+	private boolean areButtonsShowing = false;// æœ‰å†‡å±•é–‹
 	private Context mycontext;
-	private ImageView cross; // Ö÷°´âoÖĞég†ñ‚€Ê®×Ö
-	private RelativeLayout rlButton;// Ö÷°´âo
-	private Animations myani; // „Ó®‹î
-	private LinearLayout[] llayouts; // ×Ó°´âo¼¯
+	private ImageView cross; // ä¸»æŒ‰éˆ•ä¸­é–“å—°å€‹åå­—
+	private RelativeLayout rlButton;// ä¸»æŒ‰éˆ•
+	private Animations myani; // å‹•ç•«é¡
+	private LinearLayout[] llayouts; // å­æŒ‰éˆ•é›†
 	private int duretime = 300;
 
 	/**
-	 * ˜‹Ôìº¯”µ ±¾íÏë†Õ˜‹Ôìº¯”µ¶È×xÈ¡…¢”µ†ş£¬µ«¾ÍÒª†ÕvaluesÏÂÃæ¸ã‚€attr£¬Í¬Âñlayout†şxmlÓÖÒª¼ÓÃüÃû¿Õég¡ª¡ª¡ª¡ª
-	 * …î¸ã†şÔ’~ºÃ¶àÈË¿ÉÄÜßíÖªücÓÃ£¬¶øÇÒ…¢”µÌ«¶à£¨ÀıÈçN‚€×Ó°´âo£©ÌÀíÆğÉíÒà±Èİ^Á_àÂ¡£
-	 * ËùÒÔ¶ø¼ÒÇ¬´à¸ã‚€init()º¯”µ£¬ÓÉjava´ú´aÕ{ÓÃ£¬ßí×xxmlÀ®¡£ ËùÒÔ˜‹Ôìº¯”µÖ»Ó›ä›‚€context¾ÍËã
+	 * æ§‹é€ å‡½æ•¸ æœ¬ä¾†æƒ³å–ºæ§‹é€ å‡½æ•¸åº¦è®€å–åƒæ•¸å˜…ï¼Œä½†å°±è¦å–ºvaluesä¸‹é¢æå€‹attrï¼ŒåŒåŸ‹layoutå˜…xmlåˆè¦åŠ å‘½åç©ºé–“â€”â€”â€”â€”
+	 * å’æå˜…è©±~å¥½å¤šäººå¯èƒ½å””çŸ¥é»ç”¨ï¼Œè€Œä¸”åƒæ•¸å¤ªå¤šï¼ˆä¾‹å¦‚Nå€‹å­æŒ‰éˆ•ï¼‰è™•ç†èµ·èº«äº¦æ¯”è¼ƒç¾…å—¦ã€‚
+	 * æ‰€ä»¥è€Œå®¶ä¹¾è„†æå€‹init()å‡½æ•¸ï¼Œç”±javaä»£ç¢¼èª¿ç”¨ï¼Œå””è®€xmlå–‡ã€‚ æ‰€ä»¥æ§‹é€ å‡½æ•¸åªè¨˜éŒ„å€‹contextå°±ç®—
 	 */
 	public ComposerLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -46,118 +46,106 @@ public class ComposerLayout extends RelativeLayout {
 	}
 
 	/**
-	 * ³õÊ¼»¯
+	 * åˆå§‹åŒ–
 	 * 
 	 * @param imgResId
-	 *            ×Ó°´âo†şˆDÆ¬drawalbe†şid[]
+	 *            å­æŒ‰éˆ•å˜…åœ–ç‰‡drawalbeå˜…id[]
 	 * @param showhideButtonId
-	 *            Ö÷°´âo†şˆDÆ¬drawable†şid
+	 *            ä¸»æŒ‰éˆ•å˜…åœ–ç‰‡drawableå˜…id
 	 * @param crossId
-	 *            Ö÷°´âoÉÏÃæ†ñ‚€ŞD„ÓÊ®×Ö†şˆDÆ¬drawable†şid
+	 *            ä¸»æŒ‰éˆ•ä¸Šé¢å—°å€‹è½‰å‹•åå­—å˜…åœ–ç‰‡drawableå˜…id
 	 * @param pCode
-	 *            Î»ÖÃ´ú´a£¬ÀıÈç¡°ÓÒÉÏ½Ç¡±‚SALIGN_PARENT_BOTTOM|ALIGN_PARENT_RIGHT
+	 *            ä½ç½®ä»£ç¢¼ï¼Œä¾‹å¦‚â€œå³ä¸Šè§’â€ä¿‚ALIGN_PARENT_BOTTOM|ALIGN_PARENT_RIGHT
 	 * @param radius
-	 *            °ë½
+	 *            åŠå¾‘
 	 * @param durationMillis
-	 *            „Ó®‹ºÄ•r
+	 *            å‹•ç•«è€—æ™‚
 	 */
-	public void init(int[] imgResId, int showhideButtonId, int crossId,
-			byte pCode, int radius, final int durationMillis) {
+	public void init(int[] imgResId, int showhideButtonId, int crossId, byte pCode, int radius, final int durationMillis) {
 		duretime = durationMillis;
-		// ÌÀípcode£¬Œ¢×Ô¶¨Áx†şÎ»ÖÃÖµ¸Ä³ÉalignÖµ
+		// è™•ç†pcodeï¼Œå°‡è‡ªå®šç¾©å˜…ä½ç½®å€¼æ”¹æˆalignå€¼
 		int align1 = 12, align2 = 14;
-		if (pCode == RIGHTBOTTOM) { // ÓÒÏÂ½Ç
+		if (pCode == RIGHTBOTTOM) { // å³ä¸‹è§’
 			align1 = ALIGN_PARENT_RIGHT;
 			align2 = ALIGN_PARENT_BOTTOM;
-		} else if (pCode == CENTERBOTTOM) {// ÖĞÏÂ
+		} else if (pCode == CENTERBOTTOM) {// ä¸­ä¸‹
 			align1 = CENTER_HORIZONTAL;
 			align2 = ALIGN_PARENT_BOTTOM;
-		} else if (pCode == LEFTBOTTOM) { // ×óÏÂ½Ç
+		} else if (pCode == LEFTBOTTOM) { // å·¦ä¸‹è§’
 			align1 = ALIGN_PARENT_LEFT;
 			align2 = ALIGN_PARENT_BOTTOM;
-		} else if (pCode == LEFTCENTER) { // ×óÖĞ
+		} else if (pCode == LEFTCENTER) { // å·¦ä¸­
 			align1 = ALIGN_PARENT_LEFT;
 			align2 = CENTER_VERTICAL;
-		} else if (pCode == LEFTTOP) { // ×óÉÏ½Ç
+		} else if (pCode == LEFTTOP) { // å·¦ä¸Šè§’
 			align1 = ALIGN_PARENT_LEFT;
 			align2 = ALIGN_PARENT_TOP;
-		} else if (pCode == CENTERTOP) { // ÖĞÉÏ
+		} else if (pCode == CENTERTOP) { // ä¸­ä¸Š
 			align1 = CENTER_HORIZONTAL;
 			align2 = ALIGN_PARENT_TOP;
-		} else if (pCode == RIGHTTOP) { // ÓÒÉÏ½Ç
+		} else if (pCode == RIGHTTOP) { // å³ä¸Šè§’
 			align1 = ALIGN_PARENT_RIGHT;
 			align2 = ALIGN_PARENT_TOP;
-		} else if (pCode == RIGHTCENTER) { // ÓÒÖĞ
+		} else if (pCode == RIGHTCENTER) { // å³ä¸­
 			align1 = ALIGN_PARENT_RIGHT;
 			align2 = CENTER_VERTICAL;
 		}
-		// Èç¹û¼šß^°ë½¾ÍÕû´óÚ
-		RelativeLayout.LayoutParams thislps = (LayoutParams) this
-				.getLayoutParams();
-		Bitmap mBottom = BitmapFactory.decodeResource(mycontext.getResources(),
-				imgResId[0]);
+		// å¦‚æœç´°éåŠå¾‘å°±æ•´å¤§ä½¢
+		RelativeLayout.LayoutParams thislps = (LayoutParams) this.getLayoutParams();
+		Bitmap mBottom = BitmapFactory.decodeResource(mycontext.getResources(), imgResId[0]);
 		if (pCode == CENTERBOTTOM || pCode == CENTERTOP) {
-			if (thislps.width != -1
-					&& thislps.width != -2
+			if (thislps.width != -1 && thislps.width != -2
 					&& thislps.width < (radius + mBottom.getWidth() + radius * 0.1) * 2) {
 				thislps.width = (int) ((radius * 1.1 + mBottom.getWidth()) * 2);
 			}
 		} else {
-			if (thislps.width != -1
-					&& thislps.width != -2
-					&& thislps.width < radius + mBottom.getWidth() + radius
-							* 0.1) { // -1‚SFILL_PARENT£¬-2‚SWRAP_CONTENT
-				// Òòéanimation†şsetInterpolatorÔO…øOvershootInterpolator£¬¼´Ïµ†¸µ½Ä¿˜ËÖ®ááÈÔÈ»ĞĞ¶àÒ»¶Î£¨³¬ß^Ä¿˜ËÎ»ÖÃ£©~È»ááÔÙ¿s·µµ½Ä¿˜ËÎ»ÖÃ£¬ËùÒÔ¸¸layout¾ÍÒªÔÙ·Å´óÉÙÉÙ¡£¶øÒòéÄØ‚€OvershootInterpolator½Ó¼{†ş‚SÒ»‚€—Á¦£¨¸¡üc£©Öµ£¬Ú½›ß^Ò»¶¨Ëã·¨Ó‹Ëã³ö‚€•rég¡­¡­Èç¹ûÒª¸ù“şÄØ‚€—Á¦ŞD“Q×ö¾àëx”µÖµ£¬¾Í±Èİ^ÂéŸ©£¬ËùÒÔÎÒÖ»ÏµÇóÆä¼Ó…ø1/10‚€°ë½¡£Ïë×·ÇóÍêÃÀ†ş~¿ÉÒÔ×ÔĞĞÑĞ¾¿ÏÂOvershootInterpolatorîÍ¬Animationî£¬http://www.oschina.net¿ÉÒÔ“hµ¹android
-				// sdk†şÔ´´a¡£
+			if (thislps.width != -1 && thislps.width != -2
+					&& thislps.width < radius + mBottom.getWidth() + radius * 0.1) { // -1ä¿‚FILL_PARENTï¼Œ-2ä¿‚WRAP_CONTENT
+				// å› ç‚ºanimationå˜…setInterpolatorè¨­å’—OvershootInterpolatorï¼Œå³ç³»å–åˆ°ç›®æ¨™ä¹‹å¾Œä»ç„¶è¡Œå¤šä¸€æ®µï¼ˆè¶…éç›®æ¨™ä½ç½®ï¼‰~ç„¶å¾Œå†ç¸®è¿”åˆ°ç›®æ¨™ä½ç½®ï¼Œæ‰€ä»¥çˆ¶layoutå°±è¦å†æ”¾å¤§å°‘å°‘ã€‚è€Œå› ç‚ºå‘¢å€‹OvershootInterpolatoræ¥ç´å˜…ä¿‚ä¸€å€‹å½ˆåŠ›ï¼ˆæµ®é»ï¼‰å€¼ï¼Œä½¢ç¶“éä¸€å®šç®—æ³•è¨ˆç®—å‡ºå€‹æ™‚é–“â€¦â€¦å¦‚æœè¦æ ¹æ“šå‘¢å€‹å½ˆåŠ›è½‰æ›åšè·é›¢æ•¸å€¼ï¼Œå°±æ¯”è¼ƒéº»ç…©ï¼Œæ‰€ä»¥æˆ‘åªç³»æ±‚å…¶åŠ å’—1/10å€‹åŠå¾‘ã€‚æƒ³è¿½æ±‚å®Œç¾å˜…~å¯ä»¥è‡ªè¡Œç ”ç©¶ä¸‹OvershootInterpolatoré¡åŒAnimationé¡ï¼Œhttp://www.oschina.netå¯ä»¥æ¾å€’android
+				// sdkå˜…æºç¢¼ã€‚
 				thislps.width = (int) (radius * 1.1 + mBottom.getWidth());
 			}
 		}
 		if (pCode == LEFTCENTER || pCode == RIGHTCENTER) {
-			if (thislps.height != -1
-					&& thislps.height != -2
+			if (thislps.height != -1 && thislps.height != -2
 					&& thislps.height < (radius + mBottom.getHeight() + radius * 0.1) * 2) {
 				thislps.width = (int) ((radius * 1.1 + mBottom.getHeight()) * 2);
 			}
 		} else {
-			if (thislps.height != -1
-					&& thislps.height != -2
-					&& thislps.height < radius + mBottom.getHeight() + radius
-							* 0.1) {
+			if (thislps.height != -1 && thislps.height != -2
+					&& thislps.height < radius + mBottom.getHeight() + radius * 0.1) {
 				thislps.height = (int) (radius * 1.1 + mBottom.getHeight());
 			}
 		}
 		this.setLayoutParams(thislps);
-		// ƒÉ‚€Ö÷ÒªŒÓ
-		RelativeLayout rl1 = new RelativeLayout(mycontext);// °üº¬Èô¸É×Ó°´âo†şŒÓ
+		// å…©å€‹ä¸»è¦å±¤
+		RelativeLayout rl1 = new RelativeLayout(mycontext);// åŒ…å«è‹¥å¹²å­æŒ‰éˆ•å˜…å±¤
 
-		rlButton = new RelativeLayout(mycontext); // Ö÷°´Å¤
+		rlButton = new RelativeLayout(mycontext); // ä¸»æŒ‰æ‰­
 		llayouts = new LinearLayout[imgResId.length];
-		// N‚€×Ó°´âo
+		// Nå€‹å­æŒ‰éˆ•
 		for (int i = 0; i < imgResId.length; i++) {
-			ImageView img = new ImageView(mycontext);// ×Ó°´Å¤ˆDÆ¬
+			ImageView img = new ImageView(mycontext);// å­æŒ‰æ‰­åœ–ç‰‡
 
 			img.setImageResource(imgResId[i]);
-			LinearLayout.LayoutParams llps = new LinearLayout.LayoutParams(
-					LinearLayout.LayoutParams.WRAP_CONTENT,
+			LinearLayout.LayoutParams llps = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
 					LinearLayout.LayoutParams.WRAP_CONTENT);
 
 			img.setLayoutParams(llps);
-			llayouts[i] = new LinearLayout(mycontext);// ×Ó°´âoŒÓ
-			llayouts[i].setId(100 + i);// ëS±ãÔO‚€id£¬·½±ãonclick†ş•rºò×R„e·µ³ö‡­¡£ÄØ‚€idÖµ‚SÇóÆäÔO†ş£¬Èç¹û°l¬FÍ¬ÆäËû¿Ø¼ş›_Í»¾Í×ÔĞĞ¸ÄÒ»ÏÂ¡£
+			llayouts[i] = new LinearLayout(mycontext);// å­æŒ‰éˆ•å±¤
+			llayouts[i].setId(100 + i);// éš¨ä¾¿è¨­å€‹idï¼Œæ–¹ä¾¿onclickå˜…æ™‚å€™è­˜åˆ¥è¿”å‡ºåšŸã€‚å‘¢å€‹idå€¼ä¿‚æ±‚å…¶è¨­å˜…ï¼Œå¦‚æœç™¼ç¾åŒå…¶ä»–æ§ä»¶æ²–çªå°±è‡ªè¡Œæ”¹ä¸€ä¸‹ã€‚
 			llayouts[i].addView(img);
 
 			RelativeLayout.LayoutParams rlps = new RelativeLayout.LayoutParams(
-					RelativeLayout.LayoutParams.WRAP_CONTENT,
-					RelativeLayout.LayoutParams.WRAP_CONTENT);
+					RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 			rlps.alignWithParent = true;
 			rlps.addRule(align1, RelativeLayout.TRUE);
 			rlps.addRule(align2, RelativeLayout.TRUE);
 			llayouts[i].setLayoutParams(rlps);
-			llayouts[i].setVisibility(View.INVISIBLE);// ´Ë´¦²»ÄÜÎªGONE
+			llayouts[i].setVisibility(View.INVISIBLE);// æ­¤å¤„ä¸èƒ½ä¸ºGONE
 			rl1.addView(llayouts[i]);
 		}
-		RelativeLayout.LayoutParams rlps1 = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.FILL_PARENT,
+		RelativeLayout.LayoutParams rlps1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT,
 				RelativeLayout.LayoutParams.FILL_PARENT);
 		rlps1.alignWithParent = true;
 		rlps1.addRule(align1, RelativeLayout.TRUE);
@@ -165,8 +153,7 @@ public class ComposerLayout extends RelativeLayout {
 		rl1.setLayoutParams(rlps1);
 
 		RelativeLayout.LayoutParams buttonlps = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.WRAP_CONTENT,
-				RelativeLayout.LayoutParams.WRAP_CONTENT);
+				RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 		buttonlps.alignWithParent = true;
 		buttonlps.addRule(align1, RelativeLayout.TRUE);
 		buttonlps.addRule(align2, RelativeLayout.TRUE);
@@ -175,8 +162,7 @@ public class ComposerLayout extends RelativeLayout {
 		cross = new ImageView(mycontext);
 		cross.setImageResource(crossId);
 		RelativeLayout.LayoutParams crosslps = new RelativeLayout.LayoutParams(
-				RelativeLayout.LayoutParams.WRAP_CONTENT,
-				RelativeLayout.LayoutParams.WRAP_CONTENT);
+				RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 		crosslps.alignWithParent = true;
 		crosslps.addRule(CENTER_IN_PARENT, RelativeLayout.TRUE);
 		cross.setLayoutParams(crosslps);
@@ -187,12 +173,10 @@ public class ComposerLayout extends RelativeLayout {
 			public void onClick(View v) {
 				if (areButtonsShowing) {
 					myani.startAnimationsOut(duretime);
-					cross.startAnimation(Animations.getRotateAnimation(-270,
-							0, duretime));
+					cross.startAnimation(Animations.getRotateAnimation(-270, 0, duretime));
 				} else {
 					myani.startAnimationsIn(duretime);
-					cross.startAnimation(Animations.getRotateAnimation(0,
-							-270, duretime));
+					cross.startAnimation(Animations.getRotateAnimation(0, -270, duretime));
 				}
 				areButtonsShowing = !areButtonsShowing;
 			}
@@ -206,7 +190,7 @@ public class ComposerLayout extends RelativeLayout {
 	}
 
 	/**
-	 * ÊÕÂñ
+	 * æ”¶åŸ‹
 	 */
 	public void collapse() {
 		myani.startAnimationsOut(duretime);
@@ -215,7 +199,7 @@ public class ComposerLayout extends RelativeLayout {
 	}
 
 	/**
-	 * ´òé_
+	 * æ‰“é–‹
 	 */
 	public void expand() {
 		myani.startAnimationsIn(duretime);
@@ -224,21 +208,21 @@ public class ComposerLayout extends RelativeLayout {
 	}
 
 	/**
-	 * ³õÊ¼»¯…øÎ´£¨ÆäŒƒÓØ¿ÓÃ£¬Ô­íÓĞ¾Í±£Áô£©
+	 * åˆå§‹åŒ–å’—æœªï¼ˆå…¶å¯¦å†‡ä¹œç”¨ï¼ŒåŸä¾†æœ‰å°±ä¿ç•™ï¼‰
 	 */
 	public boolean isInit() {
 		return hasInit;
 	}
 
 	/**
-	 * ÓĞƒÓÕ¹é_£¨ÆäŒƒÓØ¿ÓÃ£¬Ô­íÓĞ¾Í±£Áô£©
+	 * æœ‰å†‡å±•é–‹ï¼ˆå…¶å¯¦å†‡ä¹œç”¨ï¼ŒåŸä¾†æœ‰å°±ä¿ç•™ï¼‰
 	 */
 	public boolean isShow() {
 		return areButtonsShowing;
 	}
 
 	/**
-	 * ÔOÖÃ¸÷×Ó°´âo†şonclickÊÂ¼ş
+	 * è¨­ç½®å„å­æŒ‰éˆ•å˜…onclickäº‹ä»¶
 	 */
 	public void setButtonsOnClickListener(final OnClickListener l) {
 
@@ -249,7 +233,7 @@ public class ComposerLayout extends RelativeLayout {
 
 						@Override
 						public void onClick(final View view) {
-							//´Ë´¦Ìí¼ÓÆäËûÊÂ¼ş±ÈÈç°´Å¥Ôö´ó»òÕßËõ»Ø²Ëµ¥
+							// æ­¤å¤„æ·»åŠ å…¶ä»–äº‹ä»¶æ¯”å¦‚æŒ‰é’®å¢å¤§æˆ–è€…ç¼©å›èœå•
 							collapse();
 							l.onClick(view);
 						}

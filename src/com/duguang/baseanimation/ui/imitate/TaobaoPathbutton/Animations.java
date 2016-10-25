@@ -16,29 +16,29 @@ import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.view.ViewPropertyAnimator;
 
 public class Animations {
-	public final int R; // °ë¾¶
+	public final int R; // åŠå¾„
 	public static byte RIGHTBOTTOM = 1, CENTERBOTTOM = 2, LEFTBOTTOM = 3,
 			LEFTCENTER = 4, LEFTTOP = 5, CENTERTOP = 6, RIGHTTOP = 7,
 			RIGHTCENTER = 8;
 
-	private int pc; // Î»ÖÃ´úºÅ
-	private ViewGroup clayout; // ¸¸laoyout
-	private final int amount; // ÓĞ×¶à‚€°´âo
-	private double fullangle = 180.0;// ÔÚ×´ó†ş½Ç¶ÈƒÈÅÅÑ
-	private byte xOri = 1, yOri = 1; // x¡¢yÖµ†ş·½Ïò£¬¼´ÏµÏòÉÏß€ÊÇÏòÏÂ
-	private boolean isOpen = false;// ¼ÇÂ¼ÊÇÒÑ¾­´ò¿ª»¹ÊÇ¹Ø±Õ
+	private int pc; // ä½ç½®ä»£å·
+	private ViewGroup clayout; // çˆ¶laoyout
+	private final int amount; // æœ‰å¹¾å¤šå€‹æŒ‰éˆ•
+	private double fullangle = 180.0;// åœ¨å¹¾å¤§å˜…è§’åº¦å…§æ’ä½ˆ
+	private byte xOri = 1, yOri = 1; // xã€yå€¼å˜…æ–¹å‘ï¼Œå³ç³»å‘ä¸Šé‚„æ˜¯å‘ä¸‹
+	private boolean isOpen = false;// è®°å½•æ˜¯å·²ç»æ‰“å¼€è¿˜æ˜¯å…³é—­
 	private List<ViewPropertyAnimator> viewAnimators = new ArrayList<ViewPropertyAnimator>();
 
 	/**
-	 * ˜‹Ôìº¯”µ
+	 * æ§‹é€ å‡½æ•¸
 	 * 
 	 * @param comlayout
-	 *            °ü¹ü—³ö°´âo†şlayout
+	 *            åŒ…è£¹å½ˆå‡ºæŒ‰éˆ•å˜…layout
 	 * @param poscode
-	 *            Î»ÖÃ´úÌ–£¬·Ö„eŒ¦‘ªRIGHTBOTTOM¡¢CENTERBOTTOM¡¢LEFTBOTTOM¡¢LEFTCENTER¡¢
-	 *            LEFTTOP¡¢CENTERTOP¡¢RIGHTTOP¡¢RIGHTCENTER
+	 *            ä½ç½®ä»£è™Ÿï¼Œåˆ†åˆ¥å°æ‡‰RIGHTBOTTOMã€CENTERBOTTOMã€LEFTBOTTOMã€LEFTCENTERã€
+	 *            LEFTTOPã€CENTERTOPã€RIGHTTOPã€RIGHTCENTER
 	 * @param radius
-	 *            °ë½
+	 *            åŠå¾‘
 	 */
 	public Animations(ViewGroup comlayout, int poscode, int radius) {
 		this.pc = poscode;
@@ -46,42 +46,42 @@ public class Animations {
 		this.amount = clayout.getChildCount();
 		this.R = radius;
 
-		// ³õÊ¼»¯¶¯»­£¬Ã¿¸öview¶ÔÓ¦Ò»¸öanimator
+		// åˆå§‹åŒ–åŠ¨ç”»ï¼Œæ¯ä¸ªviewå¯¹åº”ä¸€ä¸ªanimator
 		for (int i = 0; i < amount; i++) {
 			View childAt = clayout.getChildAt(i);
 			ViewPropertyAnimator anim = animate(childAt);
 			viewAnimators.add(anim);
 		}
 
-		if (poscode == RIGHTBOTTOM) { // ÓÒÏÂ½Ç
+		if (poscode == RIGHTBOTTOM) { // å³ä¸‹è§’
 			fullangle = 90;
 			xOri = -1;
 			yOri = -1;
-		} else if (poscode == CENTERBOTTOM) {// ÖĞÏÂ
+		} else if (poscode == CENTERBOTTOM) {// ä¸­ä¸‹
 			fullangle = 180;
 			xOri = -1;
 			yOri = -1;
-		} else if (poscode == LEFTBOTTOM) { // ×óÏÂ½Ç
+		} else if (poscode == LEFTBOTTOM) { // å·¦ä¸‹è§’
 			fullangle = 90;
 			xOri = 1;
 			yOri = -1;
-		} else if (poscode == LEFTCENTER) { // ×óÖĞ
+		} else if (poscode == LEFTCENTER) { // å·¦ä¸­
 			fullangle = 180;
 			xOri = 1;
 			yOri = -1;
-		} else if (poscode == LEFTTOP) { // ×óÉÏ½Ç
+		} else if (poscode == LEFTTOP) { // å·¦ä¸Šè§’
 			fullangle = 90;
 			xOri = 1;
 			yOri = 1;
-		} else if (poscode == CENTERTOP) { // ÖĞÉÏ
+		} else if (poscode == CENTERTOP) { // ä¸­ä¸Š
 			fullangle = 180;
 			xOri = -1;
 			yOri = 1;
-		} else if (poscode == RIGHTTOP) { // ÓÒÉÏ½Ç
+		} else if (poscode == RIGHTTOP) { // å³ä¸Šè§’
 			fullangle = 90;
 			xOri = -1;
 			yOri = 1;
-		} else if (poscode == RIGHTCENTER) { // ÓÒÖĞ
+		} else if (poscode == RIGHTCENTER) { // å³ä¸­
 			fullangle = 180;
 			xOri = -1;
 			yOri = -1;
@@ -122,10 +122,10 @@ public class Animations {
 	}
 
 	/**
-	 * —×‚€°´âo³ö‡­
+	 * å½ˆå¹¾å€‹æŒ‰éˆ•å‡ºåšŸ
 	 * 
 	 * @param durationMillis
-	 *            ÓÃ×¶à•rég
+	 *            ç”¨å¹¾å¤šæ™‚é–“
 	 */
 	public void startAnimationsIn(int durationMillis) {
 		isOpen = true;
@@ -156,10 +156,10 @@ public class Animations {
 	}
 
 	/**
-	 * ÊÕÂñ×‚€°´âoÈëÈ¥
+	 * æ”¶åŸ‹å¹¾å€‹æŒ‰éˆ•å…¥å»
 	 * 
 	 * @param durationMillis
-	 *            ÓÃ×¶à•rég
+	 *            ç”¨å¹¾å¤šæ™‚é–“
 	 */
 	public void startAnimationsOut(int durationMillis) {
 		isOpen = false;
@@ -178,21 +178,21 @@ public class Animations {
 	}
 
 	/**
-	 * «@È¡Î»ÖÃ´ú´a£¨ÆäŒÃ²ËÆ¶¼ƒÓØ¿ÓÃ£©
+	 * ç²å–ä½ç½®ä»£ç¢¼ï¼ˆå…¶å¯¦è²Œä¼¼éƒ½å†‡ä¹œç”¨ï¼‰
 	 */
 	public int getPosCode() {
 		return this.pc;
 	}
 
 	/**
-	 * ×ÔŞDº¯”µ£¨Ô­±¾¾ÍÓĞ†şìo‘Bº¯”µ£¬Î´Œów»¯¶¼¿ÉÒÔÕ{ÓÃ£©
+	 * è‡ªè½‰å‡½æ•¸ï¼ˆåŸæœ¬å°±æœ‰å˜…éœæ…‹å‡½æ•¸ï¼Œæœªå¯¦é«”åŒ–éƒ½å¯ä»¥èª¿ç”¨ï¼‰
 	 * 
 	 * @param fromDegrees
-	 *            Ä×¶à¶È
+	 *            å¾å¹¾å¤šåº¦
 	 * @param toDegrees
-	 *            µ½×¶à¶È
+	 *            åˆ°å¹¾å¤šåº¦
 	 * @param durationMillis
-	 *            ŞD×ÄÍ
+	 *            è½‰å¹¾è€
 	 */
 	public static Animation getRotateAnimation(float fromDegrees,
 			float toDegrees, int durationMillis) {

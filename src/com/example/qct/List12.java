@@ -1,11 +1,6 @@
 package com.example.qct;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +8,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.ContentValues;
@@ -152,7 +146,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 
 		pdxx = new Tpdxx();
 		if (bundle != null) {
-			Log.d(TAG, bundle.getString("pdid"));
+			// Log.d(TAG, bundle.getString("pdid"));
 			tv_id.setText(bundle.getString("id"));
 			tv_pdid.setText(bundle.getString("pdid"));
 			tv_jjrname.setText(bundle.getString("jjrname"));
@@ -172,7 +166,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			pdxx.setSjrname(bundle.getString("sjrname"));
 			pdxx.setSjrtel(bundle.getString("sjrtel"));
 			withPdxxFlag = true;
-			Log.d(TAG, pdxx.toString());
+			// Log.d(TAG, pdxx.toString());
 		}
 
 		listener = new OnItemClickListener() {
@@ -182,29 +176,29 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 				// TODO Auto-generated method stub
 				// Log.d(TAG, mStrings.get(position).toString());
 				tm = mStrings.get(position).toString();
-				Log.d(TAG, tm);
+				// Log.d(TAG, tm);
 				new AlertDialog.Builder(context).setIcon(R.drawable.alert_dialog_icon)
 						.setTitle(R.string.alert_dialog_two_buttons_title)
 						.setPositiveButton(R.string.alert_dialog_ok, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 
 								/* User clicked OK so do some stuff */
-								// É¾³ı
+								// åˆ é™¤
 								Tyjxx t = new Tyjxx();
-								Log.d(TAG, mStrings.get(position));
+								// Log.d(TAG, mStrings.get(position));
 								t.setTm(mStrings.get(position));
 								if (MapTyjxx_List.contains(t)) {
 									MapTyjxx_List.remove(t);
 								}
 								mStrings.remove(position);
-								Log.d(TAG, mStrings.toString());
+								// Log.d(TAG, mStrings.toString());
 								mAdapter.notifyDataSetChanged();
 
 							}
 						}).setNegativeButton(R.string.alert_dialog_cancel, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 								Intent intent = new Intent();
-								intent.setClass(context, ParcelFormActivity.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+								intent.setClass(context, ParcelFormActivity.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 								Bundle mbundle = bundle;
 								if (mbundle == null) {
 									mbundle = new Bundle();
@@ -228,7 +222,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setClass(List12.this, CaptureActivity.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+				intent.setClass(List12.this, CaptureActivity.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 				Bundle mbundle = bundle;
 				if (mbundle == null) {
 					mbundle = new Bundle();
@@ -265,7 +259,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 					dbOpenHelper = new DatabaseOpenHelper(context);
 					db = dbOpenHelper.getReadableDatabase();
 					cursor = db.rawQuery("select * from yjxx where tm = '" + tm + "'", null);
-					Log.d(TAG, tm);
+					// Log.d(TAG, tm);
 
 					LayoutInflater factory = LayoutInflater.from(context);
 					final View textEntryView = factory.inflate(R.layout.alert_dialog_text_entry, null);
@@ -280,7 +274,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 					memoEditText = (EditText) textEntryView.findViewById(R.id.memo_edit);
 					modify_flag = 0;
 
-					Log.d(TAG, pdxx.toString());
+					// Log.d(TAG, pdxx.toString());
 					jjrnameEditText.setText(pdxx.getJjrname());
 					jjraddrEditText.setText(pdxx.getJjraddr());
 					jjrtelEditText.setText(pdxx.getJjrtel());
@@ -304,7 +298,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 					}
 
 					Intent intent = new Intent();
-					intent.setClass(context, ParcelFormActivity.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+					intent.setClass(context, ParcelFormActivity.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 					Bundle mbundle = bundle;
 					if (mbundle == null) {
 						mbundle = new Bundle();
@@ -327,117 +321,6 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 					// startActivity(intent);
 					startActivityForResult(intent, REQUEST_CODE2);
 
-					// new
-					// AlertDialog.Builder(context).setIcon(R.drawable.alert_dialog_icon)
-					// .setTitle(R.string.alert_dialog_text_entry).setView(textEntryView)
-					// .setPositiveButton(R.string.alert_dialog_ok, new
-					// DialogInterface.OnClickListener() {
-					// @SuppressLint("SimpleDateFormat")
-					// public void onClick(DialogInterface dialog, int
-					// whichButton) {
-					//
-					// /*
-					// * User clicked OK so do some stuff
-					// */
-					// sjrname = sjrnameEditText.getText().toString().trim();
-					// sjraddr = sjraddrEditText.getText().toString().trim();
-					// sjrtel = sjrtelEditText.getText().toString().trim();
-					// jjrname = jjrnameEditText.getText().toString().trim();
-					// jjraddr = jjraddrEditText.getText().toString().trim();
-					// jjrtel = jjrtelEditText.getText().toString().trim();
-					// zl = zlEditText.getText().toString().trim();
-					// zf = zfEditText.getText().toString().trim();
-					// memo = memoEditText.getText().toString().trim();
-					// SimpleDateFormat df = new
-					// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
-					// String now = df.format(new Date());
-					// lrrq = now.substring(0, 10);
-					// lrsj = now.substring(11, 19);
-					//
-					// Tyjxx yjxx = new Tyjxx();
-					// yjxx.setSjrname(sjrname);
-					// yjxx.setSjraddr(sjraddr);
-					// yjxx.setSjrtel(sjrtel);
-					// yjxx.setJjrname(jjrname);
-					// yjxx.setJjraddr(jjraddr);
-					// yjxx.setJjrtel(jjrtel);
-					// yjxx.setZl(zl);
-					// yjxx.setZf(zf);
-					// yjxx.setLrrq(lrrq);
-					// yjxx.setLrsj(lrsj);
-					// yjxx.setTm(tm);
-					// yjxx.setMemo(memo);
-					// // Log.d(TAG, MapTyjxx_List.toString());
-					// // Log.d(TAG, yjxx.toString());
-					// MapTyjxx_List.add(yjxx);
-					// // Log.d(TAG, MapTyjxx_List.toString());
-					//
-					// if (sjrname.length() > 0 && sjraddr
-					//
-					// .length() > 0 && sjrtel
-					//
-					// .length() > 0 && zl.length() > 0 && zf.length() > 0) {
-					// } else {
-					// Toast.makeText(context,
-					// R.string.alert_dialog_info_uncomplete,
-					// Toast.LENGTH_SHORT).show();
-					// zl = "0";
-					// zf = "0";
-					// }
-					// // ±£´æÓÊ¼şĞÅÏ¢µ½±¾»úÊı¾İ¿â
-					// if (modify_flag > 0) {
-					// // ĞŞ¸Ä±¾»úÊı¾İ¿âÖĞµÄÓÊ¼şĞÅÏ¢
-					// String sql = "update yjxx set sjrname='" + sjrname +
-					// "',sjraddr='" + sjraddr
-					// + "',sjrtel='" + sjrtel + "',jjrname='" + jjrname +
-					// "',jjraddr='"
-					// + jjraddr + "',jjrtel='" + jjrtel + "',zl=" + zl + ",zf="
-					// + zf
-					// + ",lrrq='" + lrrq + "',lrsj='" + lrsj + "',memo='" +
-					// memo
-					// + "' where tm='" + tm + "'";
-					// Log.d(TAG, sql);
-					// db.execSQL(sql);
-					// } else {
-					// // ÔÚ±¾»úÊı¾İ¿âÖĞ²åÈëĞÂµÄÓÊ¼şĞÅÏ¢
-					// ContentValues values = new ContentValues();
-					// values.put("tm", tm);
-					// values.put("sjrname", sjrname);
-					// values.put("sjraddr", sjraddr);
-					// values.put("sjrtel", sjrtel);
-					// values.put("jjrname", jjrname);
-					// values.put("jjraddr", jjraddr);
-					// values.put("jjrtel", jjrtel);
-					// values.put("zl", zl);
-					// values.put("zf", zf);
-					// values.put("lrrq", lrrq);
-					// values.put("lrsj", lrrq);
-					// values.put("memo", memo);
-					// Log.d(TAG, values.toString());
-					// long r = db.insert("yjxx", null, values);
-					// if (r == -1) {
-					// Toast.makeText(context,
-					// R.string.alert_dialog_info_save_fail,
-					// Toast.LENGTH_SHORT).show();
-					// } else {
-					// Toast.makeText(context,
-					// R.string.alert_dialog_info_save_success,
-					// Toast.LENGTH_SHORT).show();
-					// }
-					// }
-					//
-					// }
-					// }).setNegativeButton(R.string.alert_dialog_cancel, new
-					// DialogInterface.OnClickListener() {
-					// public void onClick(DialogInterface dialog, int
-					// whichButton) {
-					//
-					// /*
-					// * User clicked cancel so do some stuff
-					// */
-					// }
-					// }).create().show();
-
 				}
 				editText.setText("");
 			}
@@ -450,12 +333,12 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				Log.d(TAG, mStrings.size() + "");
+				// Log.d(TAG, mStrings.size() + "");
 				Toast toast;
 				if (mStrings.size() > 0) {
 					Bundle mBundle = bundle;
 					if (mBundle != null && mBundle.containsKey("pdid")) {
-						Log.d(TAG, "ÅÉµ¥ID£º" + mBundle.getString("pdid"));
+						Log.d(TAG, "æ´¾å•IDï¼š" + mBundle.getString("pdid"));
 					}
 
 					queue = Volley.newRequestQueue(getApplicationContext());
@@ -466,12 +349,12 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 					YjxxServiceImpl yjxxService = new YjxxServiceImpl(getApplication());
 
 					if (mBundle != null && mBundle.containsKey("pdid")) {
-						// ´æÔÚÅÉµ¥ĞÅÏ¢
+						// å­˜åœ¨æ´¾å•ä¿¡æ¯
 						pdid = Integer.parseInt(mBundle.getString("pdid"));
 						Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
 						for (int i = 0; i < MapTyjxx_List.size(); i++) {
 							Tyjxx ty = MapTyjxx_List.get(i);
-							Log.d(TAG, ty.toString());
+							// Log.d(TAG, ty.toString());
 
 							Map<String, String> yjxx = new HashMap<String, String>();
 							yjxx.put("tm", ty.getTm());
@@ -495,12 +378,12 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 							yjxx.put("lsy", ty.getLsy() + "");
 							yjxx.put("part", ty.getPart() + "");
 							yjxx.put("pdid", pdid + "");
-							yjxx.put("fjfw",ty.getFjfw()+"");
-							Log.d(TAG, yjxx.toString());
+							yjxx.put("fjfw", ty.getFjfw() + "");
+							// Log.d(TAG, yjxx.toString());
 							map.put(i + "", yjxx);
 
 						}
-						Log.d(TAG, map.toString());
+						// Log.d(TAG, map.toString());
 						RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 						JSONObject jsonObject = new JSONObject(map);
 						String httpurl = AppConst.Server_URL + "save_yjxx_new.php";
@@ -510,15 +393,18 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 									@Override
 									public void onResponse(JSONObject response) {
 										// TODO Auto-generated method stub
-										Log.d(TAG, "response -> " + response.toString());
-										Log.d(TAG, "pdid -> " + pdid + " <-");
+										// Log.d(TAG, "response -> " +
+										// response.toString());
+										// Log.d(TAG, "pdid -> " + pdid +
+										// " <-");
 										try {
 											String success_num = response.getString("success_num");
 											if (success_num != null && Integer.parseInt(success_num) > 0) {
 												JSONArray obj = response.getJSONArray("obj");
-												String msg = "ÓÊ¼ş ";
+												String msg = "é‚®ä»¶ ";
 												for (int i = 0; i < obj.length(); i++) {
-													Log.d(TAG, i + ":tm:" + obj.getJSONObject(i).getString("tm"));
+													// Log.d(TAG, i + ":tm:" +
+													// obj.getJSONObject(i).getString("tm"));
 													msg += obj.getJSONObject(i).getString("tm") + " ";
 													String fhtm = obj.getJSONObject(i).getString("tm");
 													for (String s : mStrings) {
@@ -544,20 +430,22 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 														}
 													}
 												}
-												Log.d(TAG, "mStrings -> " + mStrings.toString());
+												// Log.d(TAG, "mStrings -> " +
+												// mStrings.toString());
 												mAdapter.notifyDataSetChanged();
-												msg += "±£´æ³É¹¦£¡";
+												msg += "ä¿å­˜æˆåŠŸï¼";
 												Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
 												if (mStrings.size() > 0) {
-													Toast.makeText(context, "Çë¼ì²éÁĞ±íÖĞÓÊ¼şÊÇ·ñÊÇÆäËü»ú¹¹Â¼Èë£¡", Toast.LENGTH_LONG)
+													Toast.makeText(context, "è¯·æ£€æŸ¥åˆ—è¡¨ä¸­é‚®ä»¶æ˜¯å¦æ˜¯å…¶å®ƒæœºæ„å½•å…¥ï¼", Toast.LENGTH_LONG)
 															.show();
 												} else if (mStrings.size() == 0) {
 													finish();
 												}
 
-												// ¸üĞÂ±¾»úÎ´´¦ÀíÅÉµ¥ÌõÊı
+												// æ›´æ–°æœ¬æœºæœªå¤„ç†æ´¾å•æ¡æ•°
 												DemoApplication app = (DemoApplication) getApplication();
-												Log.d(TAG, app.get("num") + "");
+												// Log.d(TAG, app.get("num") +
+												// "");
 												Object num = app.get("num");
 												int j = Integer.parseInt(String.valueOf(num));
 												j = j - 1;
@@ -565,11 +453,11 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 													j = 0;
 												}
 												app.put("num", j);
-												Log.d(TAG,"ÒÑ½ÓÊÕµ½±¾»úÉĞÎ´´¦ÀíÅÉµ¥ÌõÊınum£º"+j);
+												// Log.d(TAG,"å·²æ¥æ”¶åˆ°æœ¬æœºå°šæœªå¤„ç†æ´¾å•æ¡æ•°numï¼š"+j);
 
 											} else {
-												Log.d(TAG, "objÎª¿Õ");
-												Toast.makeText(context, "±£´æÊ§°Ü£¬Çë¼ì²éÁĞ±íÖĞÓÊ¼şÊÇ·ñÊÇÆäËü»ú¹¹Â¼Èë£¡", Toast.LENGTH_LONG)
+												// Log.d(TAG, "objä¸ºç©º");
+												Toast.makeText(context, "ä¿å­˜å¤±è´¥ï¼Œè¯·æ£€æŸ¥åˆ—è¡¨ä¸­é‚®ä»¶æ˜¯å¦æ˜¯å…¶å®ƒæœºæ„å½•å…¥ï¼", Toast.LENGTH_LONG)
 														.show();
 											}
 										} catch (JSONException e) {
@@ -583,12 +471,13 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 									@Override
 									public void onErrorResponse(VolleyError error) {
 										// TODO Auto-generated method stub
-										Log.e(TAG, error.getMessage(), error);
+										// Log.e(TAG, error.getMessage(),
+										// error);
 									}
 								}) {
-							// ×¢Òâ´Ë´¦overrideµÄgetParams()·½·¨,ÔÚ´Ë´¦ÉèÖÃpostĞèÒªÌá½»µÄ²ÎÊı¸ù±¾²»Æğ×÷ÓÃ
-							// ±ØĞëÏóÉÏÃæÄÇÑù,¹¹³ÉJSONObjectµ±×öÊµ²Î´«ÈëJsonObjectRequest¶ÔÏóÀï
-							// ËùÒÔÕâ¸ö·½·¨ÔÚ´Ë´¦ÊÇ²»ĞèÒªµÄ
+							// æ³¨æ„æ­¤å¤„overrideçš„getParams()æ–¹æ³•,åœ¨æ­¤å¤„è®¾ç½®postéœ€è¦æäº¤çš„å‚æ•°æ ¹æœ¬ä¸èµ·ä½œç”¨
+							// å¿…é¡»è±¡ä¸Šé¢é‚£æ ·,æ„æˆJSONObjectå½“åšå®å‚ä¼ å…¥JsonObjectRequestå¯¹è±¡é‡Œ
+							// æ‰€ä»¥è¿™ä¸ªæ–¹æ³•åœ¨æ­¤å¤„æ˜¯ä¸éœ€è¦çš„
 							// @Override
 							// protected Map<String, String> getParams() {
 							// Map<String, String> map = new HashMap<String,
@@ -610,228 +499,13 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 						};
 						requestQueue.add(jsonRequest);
 
-						// Tpdxx pdxx =
-						// pdxxService.find(Integer.valueOf(mBundle.getString("pdid")));
-						// Log.d(TAG, pdxx.toString());
-						//
-						// SimpleDateFormat df = new
-						// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
-						// String now = df.format(new Date());
-						// Log.d(TAG, now);
-						// String fkrq = now.substring(0, 10);
-						// String fksj = now.substring(11, 19);
-						//
-						// // for (int i = 0; i < mStrings.size(); i++) {
-						// for (int i = 0; i < MapTyjxx_List.size(); i++) {
-						//
-						// // Tyjxx yjxx = new Tyjxx();
-						// // yjxx.setLsy(Integer.valueOf((String)
-						// // app.get("id")));
-						// // yjxx.setTm(mStrings.get(i));
-						// // yjxx.setPdid(0);
-						//
-						// // url = AppConst.Server_URL + "save_yjxx.php?tm=" +
-						// // mStrings.get(i) + "&pdid=0" + "&lsy=" +
-						// // app.get("id");
-						//
-						// Tyjxx ty = MapTyjxx_List.get(i);
-						// tm = ty.getTm();
-						// sjrname = ty.getSjrname();
-						// sjraddr = ty.getSjraddr();
-						// sjrtel = ty.getSjrtel();
-						// jjrname = ty.getJjrname();
-						// jjraddr = ty.getJjraddr();
-						// jjrtel = ty.getJjrtel();
-						// zl = ty.getZl();
-						// zf = ty.getZf();
-						// lrrq = ty.getLrrq();
-						// lrsj = ty.getLrsj();
-						// // Tyjxx yjxx = new Tyjxx();
-						// // yjxx.setLsy(pdxx.getLsy());
-						// // yjxx.setPdid(pdxx.getPdid());
-						// // yjxx.setTm(mStrings.get(i));
-						//
-						// url = AppConst.Server_URL + "save_yjxx.php?tm=" + tm
-						// + "&pdid=" + pdxx.getPdid() + "&lsy="
-						// + pdxx.getLsy();
-						// try {
-						// if (sjrname.length() > 0) {
-						// url += "&sjrname=" + URLEncoder.encode(sjrname,
-						// "utf-8");
-						// // yjxx.setSjrname(sjraddr);
-						// }
-						// if (sjraddr.length() > 0) {
-						//
-						// url += "&sjraddr=" + URLEncoder.encode(sjraddr,
-						// "utf-8");
-						// // yjxx.setSjraddr(sjraddr);
-						// }
-						//
-						// if (jjrname.length() > 0) {
-						// url += "&jjrname=" + URLEncoder.encode(jjrname,
-						// "utf-8");
-						// // yjxx.setJjrname(jjrname);
-						// }
-						// if (jjraddr.length() > 0) {
-						// url += "&jjraddr=" + URLEncoder.encode(jjraddr,
-						// "utf-8");
-						// // yjxx.setJjraddr(jjraddr);
-						// }
-						// if (memo.length() > 0) {
-						// url += "&memo=" + URLEncoder.encode(memo, "utf-8");
-						// }
-						// } catch (UnsupportedEncodingException e) {
-						// // TODO Auto-generated catch block
-						// e.printStackTrace();
-						// }
-						// if (sjrtel.length() > 0) {
-						// url += "&sjrtel=" + sjrtel;
-						// // yjxx.setSjrtel(sjrtel);
-						// }
-						// if (jjrtel.length() > 0) {
-						// url += "&jjrtel=" + jjrtel;
-						// // yjxx.setJjrtel(jjrtel);
-						// }
-						// if (zl.length() > 0) {
-						// url += "&zl=" + zl;
-						// // yjxx.setZl(zl);
-						// }
-						// if (zf.length() > 0) {
-						// url += "&zf=" + zf;
-						// // yjxx.setZf(zf);
-						// }
-						//
-						// if (lrrq.length() > 0) {
-						// url += "&lrrq=" + lrrq;
-						// url += "&lrsj=" + lrsj;
-						// // yjxx.setLrrq(lrrq);
-						// // yjxx.setLrsj(lrsj);
-						// } else {
-						// String now2 = df.format(new Date());
-						// lrrq = now2.substring(0, 10);
-						// lrsj = now.substring(11, 19);
-						// url += "&lrrq=" + lrrq;
-						// url += "&lrsj=" + lrsj;
-						// // yjxx.setLrrq(lrrq);
-						// // yjxx.setLrsj(lrsj);
-						// }
-						//
-						// // yjxxService.save(yjxx);
-						//
-						// // Log.d(TAG, url);
-						// JsonObjectRequest jsonObjectRequest = new
-						// JsonObjectRequest(url, null,
-						// new Response.Listener<JSONObject>() {
-						// @Override
-						// public void onResponse(JSONObject response) {
-						// try {
-						// // Log.d("TAG", response
-						// // .getString("success"));
-						// if (response.getBoolean("success")) {
-						// // ±£´æ³É¹¦
-						// } else {
-						// // ±£´æÊ§°Ü
-						// }
-						// // Log.d(TAG,
-						// // URLDecoder.decode(response.getString("msg"),
-						// // "utf-8"));
-						// Toast.makeText(context,
-						// URLDecoder.decode(response.getString("msg"),
-						// "utf-8"),
-						// Toast.LENGTH_SHORT).show();
-						// } catch (JSONException e) {
-						// // TODO Auto-generated catch
-						// // block
-						// e.printStackTrace();
-						// } catch (UnsupportedEncodingException e) {
-						// // TODO Auto-generated catch
-						// // block
-						// e.printStackTrace();
-						// }
-						// }
-						// }, new Response.ErrorListener() {
-						// @Override
-						// public void onErrorResponse(VolleyError error) {
-						// Log.e("TAG", error.getMessage(), error);
-						// }
-						// });
-						// queue.add(jsonObjectRequest);
-						//
-						// }
-
-						// ¸üĞÂ·şÎñÆ÷¶ËÅÉµ¥ĞÅÏ¢±íÖĞµÄ·´À¡ÈÕÆÚºÍ·´À¡Ê±¼ä
-						// url = AppConst.Server_URL + "update_pdxx.php?pdid=" +
-						// pdxx.getPdid() + "&fkrq=" + fkrq
-						// + "&fksj=" + fksj + "&flag=1";
-						// url = AppConst.Server_URL +
-						// "update_pdxx_new.php?pdid=" + pdxx.getPdid() +
-						// "&flag=1";
-						// JsonObjectRequest jsonObjectRequest2 = new
-						// JsonObjectRequest(url, null,
-						// new Response.Listener<JSONObject>() {
-						//
-						// @Override
-						// public void onResponse(JSONObject response) {
-						// // TODO Auto-generated method stub
-						// try {
-						// // Log.d("TAG", response
-						// // .getString("success"));
-						// if (response.getBoolean("success")) {
-						// // ±£´æ³É¹¦
-						// fkrq = response.getString("fkrq");
-						// fksj = response.getString("fksj");
-						// //¸üĞÂ±¾»úpdxx±íÖĞµÄfkrqºÍfksj
-						// ContentValues values = new ContentValues();
-						// values.put("fkrq",fkrq);
-						// values.put("fksj",fksj);
-						// db = dbOpenHelper.getWritableDatabase();
-						// db.update("pdxx", values, "pdid=?", new
-						// String[]{pdxx.getPdid()+""});
-						//
-						// // ¸üĞÂ±¾»úÎ´´¦ÀíÅÉµ¥ÌõÊı
-						// DemoApplication app = (DemoApplication)
-						// getApplication();
-						// Log.d(TAG, app.get("num") + "");
-						// Object num = app.get("num");
-						// int i = Integer.parseInt(String.valueOf(num));
-						// Log.d(TAG, i + "");
-						// i = i - mStrings.size();
-						// app.put("num", num);
-						//
-						// } else {
-						// // ±£´æÊ§°Ü
-						// }
-						// Toast.makeText(context, response.getString("msg"),
-						// Toast.LENGTH_SHORT)
-						// .show();
-						// } catch (JSONException e) {
-						// // TODO Auto-generated catch block
-						// e.printStackTrace();
-						// }
-						// }
-						// }, new Response.ErrorListener() {
-						//
-						// @Override
-						// public void onErrorResponse(VolleyError error) {
-						// // TODO Auto-generated method stub
-						// Log.e("TAG", error.getMessage(), error);
-						// }
-						// });
-						// queue.add(jsonObjectRequest2);
-
-						// pdxx.setFkrq(fkrq);
-						// pdxx.setFksj(fksj);
-						// pdxx.setFlag((short) 1);
-						// Log.d(TAG, pdxx.toString());
-						// pdxxService.update(pdxx);
-
 					} else {
-						// ²»´æÔÚÅÉµ¥ĞÅÏ¢
+						// ä¸å­˜åœ¨æ´¾å•ä¿¡æ¯
 						// for (int i = 0; i < mStrings.size(); i++) {
 						Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
 						for (int i = 0; i < MapTyjxx_List.size(); i++) {
 							Tyjxx ty = MapTyjxx_List.get(i);
-							Log.d(TAG, ty.toString());
+							// Log.d(TAG, ty.toString());
 
 							Map<String, String> yjxx = new HashMap<String, String>();
 							yjxx.put("tm", ty.getTm());
@@ -855,12 +529,12 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 							yjxx.put("lsy", ty.getLsy() + "");
 							yjxx.put("part", ty.getPart() + "");
 							yjxx.put("pdid", "0");
-							yjxx.put("fjfw",ty.getFjfw()+"");
-							Log.d(TAG, yjxx.toString());
+							yjxx.put("fjfw", ty.getFjfw() + "");
+							// Log.d(TAG, yjxx.toString());
 							map.put(i + "", yjxx);
 
 						}
-						Log.d(TAG, map.toString());
+						// Log.d(TAG, map.toString());
 						RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 						JSONObject jsonObject = new JSONObject(map);
 						String httpurl = AppConst.Server_URL + "save_yjxx_new.php";
@@ -870,14 +544,16 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 									@Override
 									public void onResponse(JSONObject response) {
 										// TODO Auto-generated method stub
-										Log.d(TAG, "response -> " + response.toString());
+										// Log.d(TAG, "response -> " +
+										// response.toString());
 										try {
 											String success_num = response.getString("success_num");
 											if (success_num != null && Integer.parseInt(success_num) > 0) {
 												JSONArray obj = response.getJSONArray("obj");
-												String msg = "ÓÊ¼ş ";
+												String msg = "é‚®ä»¶ ";
 												for (int i = 0; i < obj.length(); i++) {
-													Log.d(TAG, i + ":tm:" + obj.getJSONObject(i).getString("tm"));
+													// Log.d(TAG, i + ":tm:" +
+													// obj.getJSONObject(i).getString("tm"));
 													msg += obj.getJSONObject(i).getString("tm") + " ";
 													String fhtm = obj.getJSONObject(i).getString("tm");
 													for (String s : mStrings) {
@@ -897,12 +573,13 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 														}
 													}
 												}
-												Log.d(TAG, "mStrings -> " + mStrings.toString());
+												// Log.d(TAG, "mStrings -> " +
+												// mStrings.toString());
 												mAdapter.notifyDataSetChanged();
-												msg += "±£´æ³É¹¦£¡";
+												msg += "ä¿å­˜æˆåŠŸï¼";
 												Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
 												if (mStrings.size() > 0) {
-													Toast.makeText(context, "Çë¼ì²éÁĞ±íÖĞÓÊ¼şÊÇ·ñÊÇÆäËü»ú¹¹Â¼Èë£¡", Toast.LENGTH_LONG)
+													Toast.makeText(context, "è¯·æ£€æŸ¥åˆ—è¡¨ä¸­é‚®ä»¶æ˜¯å¦æ˜¯å…¶å®ƒæœºæ„å½•å…¥ï¼", Toast.LENGTH_LONG)
 															.show();
 												} else if (mStrings.size() == 0) {
 													cursor.close();
@@ -910,8 +587,8 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 													finish();
 												}
 											} else {
-												Log.d(TAG, "objÎª¿Õ");
-												Toast.makeText(context, "±£´æÊ§°Ü£¬Çë¼ì²éÁĞ±íÖĞÓÊ¼şÊÇ·ñÊÇÆäËü»ú¹¹Â¼Èë£¡", Toast.LENGTH_LONG)
+												// Log.d(TAG, "objä¸ºç©º");
+												Toast.makeText(context, "ä¿å­˜å¤±è´¥ï¼Œè¯·æ£€æŸ¥åˆ—è¡¨ä¸­é‚®ä»¶æ˜¯å¦æ˜¯å…¶å®ƒæœºæ„å½•å…¥ï¼", Toast.LENGTH_LONG)
 														.show();
 											}
 										} catch (JSONException e) {
@@ -925,12 +602,13 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 									@Override
 									public void onErrorResponse(VolleyError error) {
 										// TODO Auto-generated method stub
-										Log.e(TAG, error.getMessage(), error);
+										// Log.e(TAG, error.getMessage(),
+										// error);
 									}
 								}) {
-							// ×¢Òâ´Ë´¦overrideµÄgetParams()·½·¨,ÔÚ´Ë´¦ÉèÖÃpostĞèÒªÌá½»µÄ²ÎÊı¸ù±¾²»Æğ×÷ÓÃ
-							// ±ØĞëÏóÉÏÃæÄÇÑù,¹¹³ÉJSONObjectµ±×öÊµ²Î´«ÈëJsonObjectRequest¶ÔÏóÀï
-							// ËùÒÔÕâ¸ö·½·¨ÔÚ´Ë´¦ÊÇ²»ĞèÒªµÄ
+							// æ³¨æ„æ­¤å¤„overrideçš„getParams()æ–¹æ³•,åœ¨æ­¤å¤„è®¾ç½®postéœ€è¦æäº¤çš„å‚æ•°æ ¹æœ¬ä¸èµ·ä½œç”¨
+							// å¿…é¡»è±¡ä¸Šé¢é‚£æ ·,æ„æˆJSONObjectå½“åšå®å‚ä¼ å…¥JsonObjectRequestå¯¹è±¡é‡Œ
+							// æ‰€ä»¥è¿™ä¸ªæ–¹æ³•åœ¨æ­¤å¤„æ˜¯ä¸éœ€è¦çš„
 							// @Override
 							// protected Map<String, String> getParams() {
 							// Map<String, String> map = new HashMap<String,
@@ -977,10 +655,6 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 		// listView = (ListView) findViewById(R.id.list);
 		if (bundle != null && bundle.containsKey("barcode")) {
 			mStrings.add(bundle.getString("barcode"));
-			// mAdapter = new ArrayAdapter<String>(this, R.layout.listview_item,
-			// R.id.textView, mStrings);
-			// setListAdapter(mAdapter);
-			// listView.setOnItemClickListener(listener);
 
 			mAdapter.notifyDataSetChanged();
 
@@ -991,7 +665,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 		editText.setOnKeyListener(new View.OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				if (keyCode == KeyEvent.KEYCODE_ENTER) {
-					// ×Ô¼ºÉè¶¨µÄÊÂ¼ş
+					// è‡ªå·±è®¾å®šçš„äº‹ä»¶
 					btn_input.performClick();
 				}
 				return false;
@@ -1060,7 +734,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			bundle = data.getExtras();
 			String strResult = bundle.getString("barcode");
 			strResult = strResult.replace("\n", "");
-			Log.i(TAG, "onActivityResult: " + strResult);
+			// Log.i(TAG, "onActivityResult: " + strResult);
 			Toast.makeText(context, strResult, Toast.LENGTH_SHORT).show();
 			mStrings.add(strResult);
 			mAdapter.notifyDataSetChanged();
@@ -1084,7 +758,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			memoEditText = (EditText) textEntryView.findViewById(R.id.memo_edit);
 			modify_flag = 0;
 
-			Log.d(TAG, pdxx.toString());
+			// Log.d(TAG, pdxx.toString());
 			jjrnameEditText.setText(pdxx.getJjrname());
 			jjraddrEditText.setText(pdxx.getJjraddr());
 			jjrtelEditText.setText(pdxx.getJjrtel());
@@ -1108,7 +782,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			}
 
 			Intent intent = new Intent();
-			intent.setClass(context, ParcelFormActivity.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+			intent.setClass(context, ParcelFormActivity.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 			Bundle mbundle = bundle;
 			if (mbundle == null) {
 				mbundle = new Bundle();
@@ -1120,112 +794,9 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			// startActivity(intent);
 			startActivityForResult(intent, REQUEST_CODE2);
 
-			// new
-			// AlertDialog.Builder(context).setIcon(R.drawable.alert_dialog_icon)
-			// .setTitle(R.string.alert_dialog_text_entry).setView(textEntryView)
-			// .setPositiveButton(R.string.alert_dialog_ok, new
-			// DialogInterface.OnClickListener() {
-			// @SuppressLint("SimpleDateFormat")
-			// public void onClick(DialogInterface dialog, int whichButton) {
-			//
-			// /*
-			// * User clicked OK so do some stuff
-			// */
-			// sjrname = sjrnameEditText.getText().toString().trim();
-			// sjraddr = sjraddrEditText.getText().toString().trim();
-			// sjrtel = sjrtelEditText.getText().toString().trim();
-			// jjrname = jjrnameEditText.getText().toString().trim();
-			// jjraddr = jjraddrEditText.getText().toString().trim();
-			// jjrtel = jjrtelEditText.getText().toString().trim();
-			// zl = zlEditText.getText().toString().trim();
-			// zf = zfEditText.getText().toString().trim();
-			// memo = memoEditText.getText().toString().trim();
-			// SimpleDateFormat df = new
-			// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
-			// String now = df.format(new Date());
-			// lrrq = now.substring(0, 10);
-			// lrsj = now.substring(11, 19);
-			//
-			// Tyjxx yjxx = new Tyjxx();
-			// yjxx.setSjrname(sjrname);
-			// yjxx.setSjraddr(sjraddr);
-			// yjxx.setSjrtel(sjrtel);
-			// yjxx.setJjrname(jjrname);
-			// yjxx.setJjraddr(jjraddr);
-			// yjxx.setJjrtel(jjrtel);
-			// yjxx.setZl(zl);
-			// yjxx.setZf(zf);
-			// yjxx.setLrrq(lrrq);
-			// yjxx.setLrsj(lrsj);
-			// yjxx.setTm(tm);
-			// yjxx.setMemo(memo);
-			// // Log.d(TAG, MapTyjxx_List.toString());
-			// // Log.d(TAG, yjxx.toString());
-			// MapTyjxx_List.add(yjxx);
-			// // Log.d(TAG, MapTyjxx_List.toString());
-			//
-			// if (sjrname.length() > 0 && sjraddr
-			//
-			// .length() > 0 && sjrtel
-			//
-			// .length() > 0 && zl.length() > 0 && zf.length() > 0) {
-			// } else {
-			// Toast.makeText(context, R.string.alert_dialog_info_uncomplete,
-			// Toast.LENGTH_SHORT)
-			// .show();
-			// }
-			// // ±£´æÓÊ¼şĞÅÏ¢µ½±¾»úÊı¾İ¿â
-			// if (modify_flag > 0) {
-			// // ĞŞ¸Ä±¾»úÊı¾İ¿âÖĞµÄÓÊ¼şĞÅÏ¢
-			// db.execSQL("update yjxx set sjrname='" + sjrname + "',sjraddr='"
-			// + sjraddr
-			// + "',sjrtel='" + sjrtel + "',jjrname='" + jjrname + "',jjraddr='"
-			// + jjraddr
-			// + "',jjrtel='" + jjrtel + "',zl=" + zl + ",zf=" + zf + ",lrrq='"
-			// + lrrq
-			// + "',lrsj='" + lrsj + "',memo='" + memo + "' where tm='" + tm +
-			// "'");
-			// } else {
-			// // ÔÚ±¾»úÊı¾İ¿âÖĞ²åÈëĞÂµÄÓÊ¼şĞÅÏ¢
-			// ContentValues values = new ContentValues();
-			// values.put("tm", tm);
-			// values.put("sjrname", sjrname);
-			// values.put("sjraddr", sjraddr);
-			// values.put("sjrtel", sjrtel);
-			// values.put("jjrname", jjrname);
-			// values.put("jjraddr", jjraddr);
-			// values.put("jjrtel", jjrtel);
-			// values.put("zl", zl);
-			// values.put("zf", zf);
-			// values.put("lrrq", lrrq);
-			// values.put("lrsj", lrrq);
-			// values.put("memo", memo);
-			// Log.d(TAG, values.toString());
-			// long r = db.insert("yjxx", null, values);
-			// if (r == -1) {
-			// Toast.makeText(context, R.string.alert_dialog_info_save_fail,
-			// Toast.LENGTH_SHORT)
-			// .show();
-			// } else {
-			// Toast.makeText(context, R.string.alert_dialog_info_save_success,
-			// Toast.LENGTH_SHORT)
-			// .show();
-			// }
-			// }
-			//
-			// }
-			// }).setNegativeButton(R.string.alert_dialog_cancel, new
-			// DialogInterface.OnClickListener() {
-			// public void onClick(DialogInterface dialog, int whichButton) {
-			//
-			// /*
-			// * User clicked cancel so do some stuff
-			// */
-			// }
-			// }).create().show();
 		} else if (requestCode == REQUEST_CODE2 && resultCode == ParcelFormActivity.RESULT_CODE) {
 			bundle = data.getExtras();
-			Log.d(TAG, bundle.getString("jjraddr"));
+			// Log.d(TAG, bundle.getString("jjraddr"));
 			Tyjxx yjxx = new Tyjxx();
 			yjxx.setSjrname(bundle.getString("sjrname"));
 			yjxx.setSjraddr(bundle.getString("sjraddr"));
@@ -1249,7 +820,7 @@ public class List12 extends ListActivity implements OnClickListener, OnKeyListen
 			yjxx.setYwzl(bundle.getInt("njpm") + "");
 			yjxx.setLsy(bundle.getInt("lsy"));
 			yjxx.setPart(bundle.getShort("part"));
-		    yjxx.setFjfw(bundle.getInt("fjfw"));
+			yjxx.setFjfw(bundle.getInt("fjfw"));
 			if (MapTyjxx_List.contains(yjxx)) {
 				MapTyjxx_List.remove(yjxx);
 			}

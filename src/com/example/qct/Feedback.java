@@ -200,7 +200,7 @@ public class Feedback extends Activity {
 								EditText et = (EditText) findViewById(R.id.feedback_edittext);
 								et.setText(tdfk[clicked]);
 								// Toast.makeText(getApplicationContext(),
-								// "ÄúÑ¡ÔñÁË£º" + tdfk[clicked],
+								// "æ‚¨é€‰æ‹©äº†ï¼š" + tdfk[clicked],
 								// Toast.LENGTH_SHORT).show();
 							}
 						}).setNegativeButton(R.string.alert_dialog_cancel, new DialogInterface.OnClickListener() {
@@ -219,7 +219,7 @@ public class Feedback extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				// SimpleDateFormat df = new
-				// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
+				// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// è®¾ç½®æ—¥æœŸæ ¼å¼
 				// String now = df.format(new Date());
 				// Log.d(TAG, now);
 				// fkrq = now.substring(0, 10);
@@ -258,7 +258,7 @@ public class Feedback extends Activity {
 
 											if (jjrtel != null && jjrtel.trim().length() > 0) {
 
-												// µ¯³ö¶Ô»°¿ò£¬Ñ¯ÎÊÊÇ·ñÒª·¢ËÍ¶ÌĞÅ
+												// å¼¹å‡ºå¯¹è¯æ¡†ï¼Œè¯¢é—®æ˜¯å¦è¦å‘é€çŸ­ä¿¡
 												new AlertDialog.Builder(context)
 														.setIcon(R.drawable.alert_dialog_icon)
 														.setTitle(R.string.need_short_message)
@@ -266,10 +266,10 @@ public class Feedback extends Activity {
 																new DialogInterface.OnClickListener() {
 																	public void onClick(DialogInterface dialog,
 																			int whichButton) {
-																		// Ñ¡ÔñÊÇ£¬·¢ËÍ¶ÌĞÅ
-																		// »ñÈ¡¶ÌĞÅ¹ÜÀíÆ÷
+																		// é€‰æ‹©æ˜¯ï¼Œå‘é€çŸ­ä¿¡
+																		// è·å–çŸ­ä¿¡ç®¡ç†å™¨
 																		SmsManager smsManager = SmsManager.getDefault();
-																		// ÉèÖÃ¶ÌĞÅÄÚÈİ
+																		// è®¾ç½®çŸ­ä¿¡å†…å®¹
 																		String msg = null;
 																		msg = getResources().getString(
 																				R.string.short_message_begin)
@@ -283,13 +283,13 @@ public class Feedback extends Activity {
 																				+ getResources().getString(
 																						R.string.short_message_end);
 																		Log.d(TAG, msg);
-																		// ²ğ·Ö¶ÌĞÅÄÚÈİ£¨ÊÖ»ú¶ÌĞÅ³¤¶ÈÏŞÖÆ£©
+																		// æ‹†åˆ†çŸ­ä¿¡å†…å®¹ï¼ˆæ‰‹æœºçŸ­ä¿¡é•¿åº¦é™åˆ¶ï¼‰
 																		// ArrayList<String>
 																		// list
 																		// =
 																		// smsManager
 																		// .divideMessage(msg);
-																		// ·¢ËÍ¶ÌĞÅ
+																		// å‘é€çŸ­ä¿¡
 																		// for
 																		// (String
 																		// text
@@ -316,7 +316,7 @@ public class Feedback extends Activity {
 																new DialogInterface.OnClickListener() {
 																	public void onClick(DialogInterface dialog,
 																			int whichButton) {
-																		// Ñ¡Ôñ·ñ£¬²»·¢ËÍ¶ÌĞÅ
+																		// é€‰æ‹©å¦ï¼Œä¸å‘é€çŸ­ä¿¡
 																	}
 																}).create().show();
 
@@ -359,7 +359,7 @@ public class Feedback extends Activity {
 		editText.setOnKeyListener(new View.OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				if (keyCode == KeyEvent.KEYCODE_ENTER) {
-					// ×Ô¼ºÉè¶¨µÄÊÂ¼ş
+					// ï¿½Ô¼ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½Â¼ï¿½
 					btn_feedback_query.performClick();
 				}
 				return false;

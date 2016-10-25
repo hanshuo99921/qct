@@ -92,7 +92,7 @@ public class MainActivity2 extends ActionBarActivity {
 				new AlertDialog.Builder(context).setIcon(R.drawable.alert_dialog_icon).setTitle(R.string.clear_database)
 						.setPositiveButton(R.string.need_short_message_yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
-								// Ñ¡ÔñÊÇ£¬Çå³ıÊı¾İ¿â
+								// é€‰æ‹©æ˜¯ï¼Œæ¸…é™¤æ•°æ®åº“
 								context.deleteDatabase("qct");
 								DemoApplication app = (DemoApplication) getApplication();
 								app.put("num", 0 + "");
@@ -101,7 +101,7 @@ public class MainActivity2 extends ActionBarActivity {
 							}
 						}).setNegativeButton(R.string.need_short_message_no, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
-								// Ñ¡Ôñ·ñ£¬²»×öÈÎºÎ²Ù×÷
+								// é€‰æ‹©å¦ï¼Œä¸åšä»»ä½•æ“ä½œ
 							}
 						}).create().show();
 
@@ -144,20 +144,20 @@ public class MainActivity2 extends ActionBarActivity {
 					Log.d(TAG, data.toString());
 					mdata.add(data);
 
-					SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
+					SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// è®¾ç½®æ—¥æœŸæ ¼å¼
 					String now = df.format(new Date());
 					Log.d(TAG, now);
 					String jsrq = now.substring(0, 10);
 					String jssj = now.substring(11, 19);
 					int id = cursor.getInt(cursor.getColumnIndex("id"));
 					if (cursor.getString(cursor.getColumnIndex("jsrq")) == null) {
-						// ¸üĞÂ±¾µØÊı¾İ¿â
+						// æ›´æ–°æœ¬åœ°æ•°æ®åº“
 						ContentValues values = new ContentValues();
 						values.put("jsrq", jsrq);
 						values.put("jssj", jssj);
 						db.update("pdxx", values, " id=? ", new String[] { id + "" });
 
-						// ¸üĞÂºóÌ¨·şÎñÆ÷Êı¾İ¿â
+						// æ›´æ–°åå°æœåŠ¡å™¨æ•°æ®åº“
 						queue = Volley.newRequestQueue(getApplicationContext());
 						String url = AppConst.Server_URL + "update_pdxx_jssj.php?pdid=" + pdid + "&jsrq=" + jsrq + "&jssj=" + jssj;
 						JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
@@ -215,7 +215,7 @@ public class MainActivity2 extends ActionBarActivity {
 						Intent intent = new Intent();
 						intent.putExtras(bundle);
 						Log.d(TAG, bundle.toString());
-						intent.setClass(context, List12.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+						intent.setClass(context, List12.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 						overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
 						// intent.addFlags(intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 						intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -279,14 +279,14 @@ public class MainActivity2 extends ActionBarActivity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-		Log.d(TAG, "onStart·½·¨¿ªÊ¼Ö´ĞĞ------------------");
+		Log.d(TAG, "onStartæ–¹æ³•å¼€å§‹æ‰§è¡Œ------------------");
 	}
 
 	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub
 		super.onRestart();
-		Log.d(TAG, "onRestart·½·¨¿ªÊ¼Ö´ĞĞ------------------");
+		Log.d(TAG, "onRestartæ–¹æ³•å¼€å§‹æ‰§è¡Œ------------------");
 
 	}
 
@@ -314,7 +314,7 @@ public class MainActivity2 extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onResume();
 		// btn_info.performClick();
-		Log.d(TAG, "onResume·½·¨¿ªÊ¼Ö´ĞĞ--------------------");
+		Log.d(TAG, "onResumeæ–¹æ³•å¼€å§‹æ‰§è¡Œ--------------------");
 //		DemoApplication app = (DemoApplication) getApplication();
 //		Log.d(TAG, app.get("num") + "");
 //		Object a = app.get("num");

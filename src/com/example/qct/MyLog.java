@@ -15,10 +15,10 @@ import android.os.Environment;
 import android.util.Log;
 
 /**
- * Android¿ª·¢µ÷ÊÔÈÕÖ¾¹¤¾ßÀà[Ö§³Ö±£´æµ½SD¿¨]<br>
+ * Androidå¼€å‘è°ƒè¯•æ—¥å¿—å·¥å…·ç±»[æ”¯æŒä¿å­˜åˆ°SDå¡]<br>
  * <br>
  *
- * ĞèÒªÒ»Ğ©È¨ÏŞ: <br>
+ * éœ€è¦ä¸€äº›æƒé™: <br>
  * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <br>
  * <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /><br>
  *
@@ -31,9 +31,9 @@ public class MyLog
 
     public static final String CACHE_DIR_NAME = "mirror";
 
-    public static boolean isDebugModel = true;// ÊÇ·ñÊä³öÈÕÖ¾
-    public static boolean isSaveDebugInfo = false;// ÊÇ·ñ±£´æµ÷ÊÔÈÕÖ¾
-    public static boolean isSaveCrashInfo = false;// ÊÇ·ñ±£´æ±¨´íÈÕÖ¾
+    public static boolean isDebugModel = true;// æ˜¯å¦è¾“å‡ºæ—¥å¿—
+    public static boolean isSaveDebugInfo = false;// æ˜¯å¦ä¿å­˜è°ƒè¯•æ—¥å¿—
+    public static boolean isSaveCrashInfo = false;// æ˜¯å¦ä¿å­˜æŠ¥é”™æ—¥å¿—
 
     public static void v(final String tag, final String msg)
     {
@@ -68,7 +68,7 @@ public class MyLog
     }
 
     /**
-     * µ÷ÊÔÈÕÖ¾£¬±ãÓÚ¿ª·¢¸ú×Ù¡£
+     * è°ƒè¯•æ—¥å¿—ï¼Œä¾¿äºå¼€å‘è·Ÿè¸ªã€‚
      * @param tag
      * @param msg
      */
@@ -107,7 +107,7 @@ public class MyLog
         }.start();
     }
     /**
-     * try catch Ê±Ê¹ÓÃ£¬ÉÏÏß²úÆ·¿ÉÉÏ´«·´À¡¡£
+     * try catch æ—¶ä½¿ç”¨ï¼Œä¸Šçº¿äº§å“å¯ä¸Šä¼ åé¦ˆã€‚
      * @param tag
      * @param tr
      */
@@ -127,7 +127,7 @@ public class MyLog
     }
 
     /**
-     * »ñÈ¡²¶×½µ½µÄÒì³£µÄ×Ö·û´®
+     * è·å–æ•æ‰åˆ°çš„å¼‚å¸¸çš„å­—ç¬¦ä¸²
      * @param tr
      * @return
      */
@@ -155,7 +155,7 @@ public class MyLog
     }
 
     /**
-     * ±êÊ¶Ã¿ÌõÈÕÖ¾²úÉúµÄÊ±¼ä
+     * æ ‡è¯†æ¯æ¡æ—¥å¿—äº§ç”Ÿçš„æ—¶é—´
      * @return
      */
     private static String time()
@@ -166,7 +166,7 @@ public class MyLog
     }
 
     /**
-     * ÒÔÄêÔÂÈÕ×÷ÎªÈÕÖ¾ÎÄ¼şÃû³Æ
+     * ä»¥å¹´æœˆæ—¥ä½œä¸ºæ—¥å¿—æ–‡ä»¶åç§°
      * @return
      */
     private static String date()
@@ -176,7 +176,7 @@ public class MyLog
     }
 
     /**
-     * ±£´æµ½ÈÕÖ¾ÎÄ¼ş
+     * ä¿å­˜åˆ°æ—¥å¿—æ–‡ä»¶
      * @param content
      */
     public static synchronized void write(String content)
@@ -195,7 +195,7 @@ public class MyLog
     }
 
     /**
-     * »ñÈ¡ÈÕÖ¾ÎÄ¼şÂ·¾¶
+     * è·å–æ—¥å¿—æ–‡ä»¶è·¯å¾„
      * @return
      */
     public static String getFile()

@@ -209,7 +209,7 @@ public class PdxxServiceImpl implements PdxxServiceI {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
 		db.delete("pdxx", null, null);
-		Log.d("Pdxx", "±ÌTpdxx“—±ª«Â≥˝£°");
+		Log.d("Pdxx", "Ë°®TpdxxÂ∑≤Ë¢´Ê∏ÖÈô§ÔºÅ");
 		DemoApplication app = (DemoApplication) context;
 		app.put("num", 0 + "");
 	}

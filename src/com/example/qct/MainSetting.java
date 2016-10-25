@@ -4,9 +4,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -33,6 +35,8 @@ public class MainSetting extends Activity {
 	private Context context;
 	private Button btn_clearButton;
 	private Button btn_updateButton;
+	private ProgressBar progressBar;
+	private Dialog dialog;
 
 	private DatabaseOpenHelper dbOpenHelper;
 	private SQLiteDatabase db;
@@ -58,7 +62,7 @@ public class MainSetting extends Activity {
 						.setTitle(R.string.clear_database)
 						.setPositiveButton(R.string.need_short_message_yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
-								// ѡ���ǣ�������ݿ�
+								// 选择是，清除数据库
 								context.deleteDatabase("qct");
 								DemoApplication app = (DemoApplication) getApplication();
 								app.put("num", 0 + "");
@@ -66,7 +70,7 @@ public class MainSetting extends Activity {
 							}
 						}).setNegativeButton(R.string.need_short_message_no, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
-								// ѡ��񣬲����κβ���
+								// 选择否，不做任何操作
 							}
 						}).create().show();
 			}
@@ -85,13 +89,33 @@ public class MainSetting extends Activity {
 							@Override
 							public void onResponse(JSONObject response) {
 								// Log.d(TAG, response.toString());
+
+								ProgressDialog mypDialog=new ProgressDialog(context);
+					            //实例化
+					            mypDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+					            //设置进度条风格，风格为圆形，旋转的
+					            mypDialog.setTitle("正在同步数据......");
+					            //设置ProgressDialog 标题
+//					            mypDialog.setMessage(getResources().getString(R.string.second));
+					            //设置ProgressDialog 提示信息
+//					            mypDialog.setIcon(R.drawable.android);
+					            //设置ProgressDialog 标题图标
+//					            mypDialog.setButton("Google",this);
+					            //设置ProgressDialog 的一个Button
+					            mypDialog.setIndeterminate(false);
+					            //设置ProgressDialog 的进度条是否不明确
+					            mypDialog.setCancelable(false);
+					            //设置ProgressDialog 是否可以按退回按键取消
+					            mypDialog.show();
+					            //让ProgressDialog显示
+
 								try {
 									dbOpenHelper = new DatabaseOpenHelper(context);
 									db = dbOpenHelper.getWritableDatabase();
 									db.execSQL("delete  from ywzl");
 									JSONArray njpmJsonArray = response.getJSONArray("njpm");
 
-									// �����ڼ�Ʒ����
+									// 更新内件品名表
 									for (int i = 0; i < njpmJsonArray.length(); i++) {
 										JSONObject njpmJsonObject = njpmJsonArray.getJSONObject(i);
 										ContentValues values = new ContentValues();
@@ -100,10 +124,10 @@ public class MainSetting extends Activity {
 										db.insert("ywzl", null, values);
 										Log.d(TAG, njpmJsonObject.toString());
 									}
-
+									mypDialog.setProgress(30);
 									db.execSQL("delete  from jz");
 									JSONArray jzkhJsonArray = response.getJSONArray("jzkh");
-									// ���¼��˿ͻ���
+									// 更新记账客户表
 									for (int i = 0; i < jzkhJsonArray.length(); i++) {
 										JSONObject jzkhJsonObject = jzkhJsonArray.getJSONObject(i);
 										Log.d(TAG, jzkhJsonObject.toString());
@@ -115,13 +139,18 @@ public class MainSetting extends Activity {
 										values.put("part", jzkhJsonObject.getString("part"));
 										values.put("flag", jzkhJsonObject.getString("flag"));
 										values.put("memo", jzkhJsonObject.getString("memo"));
+										mypDialog.setProgress(100-jzkhJsonArray.length()+i);
 										Log.d(TAG, values.toString());
 										db.insert("jz", null, values);
-										Log.d(TAG, jzkhJsonObject.toString());
+										// Log.d(TAG,
+										// jzkhJsonObject.toString());
 									}
+									mypDialog.setProgress(100);
 									db.close();
 									dbOpenHelper.close();
-									Toast.makeText(context, "���������Ѹ�����ϣ�", Toast.LENGTH_SHORT).show();
+									
+									Toast.makeText(context, "本机数据已更新完毕！", Toast.LENGTH_SHORT).show();
+									mypDialog.dismiss();
 								} catch (JSONException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
@@ -131,7 +160,7 @@ public class MainSetting extends Activity {
 						}, new Response.ErrorListener() {
 							@Override
 							public void onErrorResponse(VolleyError error) {
-								Log.e("TAG", error.getMessage(), error);
+								// Log.e("TAG", error.getMessage(), error);
 							}
 						});
 				queue.add(jsonObjectRequest);

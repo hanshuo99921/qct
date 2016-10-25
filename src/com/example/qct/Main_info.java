@@ -95,23 +95,23 @@ public class Main_info extends ActionBarActivity {
 			data.put("info_item_sjrname", cursor.getString(cursor.getColumnIndex("sjrname")));
 			data.put("info_item_sjraddr", cursor.getString(cursor.getColumnIndex("sjraddr")));
 			data.put("info_item_sjrtel", cursor.getString(cursor.getColumnIndex("sjrtel")));
-			Log.d(TAG, data.toString());
+			// Log.d(TAG, data.toString());
 			mdata.add(data);
 
-			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// ÉèÖÃÈÕÆÚ¸ñÊ½
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// è®¾ç½®æ—¥æœŸæ ¼å¼
 			String now = df.format(new Date());
-			Log.d(TAG, now);
+			// Log.d(TAG, now);
 			String jsrq = now.substring(0, 10);
 			String jssj = now.substring(11, 19);
 			int id = cursor.getInt(cursor.getColumnIndex("id"));
 			if (cursor.getString(cursor.getColumnIndex("jsrq")) == null) {
-				// ¸üĞÂ±¾µØÊı¾İ¿â
+				// æ›´æ–°æœ¬åœ°æ•°æ®åº“
 				ContentValues values = new ContentValues();
 				values.put("jsrq", jsrq);
 				values.put("jssj", jssj);
 				db.update("pdxx", values, " id=? ", new String[] { id + "" });
 
-				// ¸üĞÂºóÌ¨·şÎñÆ÷Êı¾İ¿â
+				// æ›´æ–°åå°æœåŠ¡å™¨æ•°æ®åº“
 				queue = Volley.newRequestQueue(getApplicationContext());
 				String url = AppConst.Server_URL + "update_pdxx_jssj.php?pdid=" + pdid + "&jsrq=" + jsrq + "&jssj="
 						+ jssj;
@@ -123,7 +123,7 @@ public class Main_info extends ActionBarActivity {
 									if (response.getBoolean("success")) {
 										Toast.makeText(context, response.getString("msg"), Toast.LENGTH_SHORT).show();
 
-										// ¸üĞÂ»ñÈ¡µ½±¾µØÉĞÎ´½ÓÊÕÅÉµ¥ÊıÁ¿
+										// æ›´æ–°è·å–åˆ°æœ¬åœ°å°šæœªæ¥æ”¶æ´¾å•æ•°é‡
 										Object object = app.get("num");
 										int num = Integer.parseInt(String.valueOf(object));
 										num = num - 1;
@@ -132,39 +132,26 @@ public class Main_info extends ActionBarActivity {
 										}
 										app.put("num", num);
 
-										// ¸ø¼Ä¼şÓÃ»§·¢ËÍ¶ÌĞÅÍ¨Öª
-										// »ñÈ¡¶ÌĞÅ¹ÜÀíÆ÷
+										// ç»™å¯„ä»¶ç”¨æˆ·å‘é€çŸ­ä¿¡é€šçŸ¥
+										// è·å–çŸ­ä¿¡ç®¡ç†å™¨
 										SmsManager smsManager = SmsManager.getDefault();
-										// ÉèÖÃ¶ÌĞÅÄÚÈİ
+										// è®¾ç½®çŸ­ä¿¡å†…å®¹
 										String msg = null;
 										msg = getResources().getString(R.string.short_message_begin) + jjrname
 												+ getResources().getString(R.string.Main_info_SM_middle1) + name
 												+ getResources().getString(R.string.Main_info_SM_middle2);
-										Log.d(TAG, msg);
-										// ²ğ·Ö¶ÌĞÅÄÚÈİ£¨ÊÖ»ú¶ÌĞÅ³¤¶ÈÏŞÖÆ£©
-										// ArrayList<String>
-										// list = smsManager
-										// .divideMessage(msg);
-										// ·¢ËÍ¶ÌĞÅ
-										// for (String text :
-										// list) {
-										// smsManager
-										// .sendTextMessage(
-										// jjrtel,
-										// null,
-										// text,
-										// null,
-										// null);
-										// }
+										// Log.d(TAG, msg);
 
 										String tel = "";
-										Log.d(TAG, response.getString("pdid"));
+										// Log.d(TAG,
+										// response.getString("pdid"));
 										Cursor cursor2 = db.query("pdxx", null, "pdid=?",
 												new String[] { response.getString("pdid") }, null, null, null);
 										if (cursor2.moveToNext()) {
 											tel = cursor2.getString(cursor2.getColumnIndex("jjrtel"));
 										}
-										Log.d(TAG, "jjrtel -> " + tel + " <-");
+										// Log.d(TAG, "jjrtel -> " + tel +
+										// " <-");
 										if (tel != null && tel.length() > 0) {
 											smsManager.sendTextMessage(tel, null, msg, null, null);
 										}
@@ -178,12 +165,12 @@ public class Main_info extends ActionBarActivity {
 						}, new Response.ErrorListener() {
 							@Override
 							public void onErrorResponse(VolleyError error) {
-								Log.e("TAG", error.getMessage(), error);
+								// Log.e("TAG", error.getMessage(), error);
 							}
 						});
 				queue.add(jsonObjectRequest);
 			} else {
-				// ¸üĞÂ»ñÈ¡µ½±¾µØÉĞÎ´½ÓÊÕÅÉµ¥ÊıÁ¿
+				// æ›´æ–°è·å–åˆ°æœ¬åœ°å°šæœªæ¥æ”¶æ´¾å•æ•°é‡
 				Object object = app.get("num");
 				int num = Integer.parseInt(String.valueOf(object));
 				num = num - 1;
@@ -195,16 +182,9 @@ public class Main_info extends ActionBarActivity {
 
 		}
 
-		// DemoApplication app = (DemoApplication) getApplication();
-		// Log.d(TAG, app.get("num") + "");
-		// if ((Integer) app.get("n") * (Integer) app.get("m") > 0) {
-		// app.put("num", (Integer) app.get("n") + (Integer) app.get("m"));
-		// }
-		// Log.d(TAG, app.get("num") + "");
-
 		Log.d(TAG, mdata.toString());
 		if (mdata.size() > 0) {
-			// ÏÔÊ¾´ı´¦ÀíÅÉµ¥ĞÅÏ¢
+			// æ˜¾ç¤ºå¾…å¤„ç†æ´¾å•ä¿¡æ¯
 			sAdapter = new SimpleAdapter(context, mdata, R.layout.info_item, from, to);
 			listView.setAdapter(sAdapter);
 			Animation anim = AnimationUtils.loadAnimation(context, R.anim.appear_top_left_in);
@@ -229,8 +209,8 @@ public class Main_info extends ActionBarActivity {
 					bundle.putString("lsy", (String) app.get("id"));
 					Intent intent = new Intent();
 					intent.putExtras(bundle);
-					Log.d(TAG, bundle.toString());
-					intent.setClass(context, List12.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+					// Log.d(TAG, bundle.toString());
+					intent.setClass(context, List12.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 					overridePendingTransition(R.anim.slide_left, R.anim.slide_right);
 					// intent.addFlags(intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 					intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -240,7 +220,7 @@ public class Main_info extends ActionBarActivity {
 
 			});
 		} else {
-			Toast.makeText(context, "Ã»ÓĞÎ´´¦ÀíµÄĞÅÏ¢£¡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, "æ²¡æœ‰æœªå¤„ç†çš„ä¿¡æ¯ï¼", Toast.LENGTH_SHORT).show();
 			finish();
 		}
 		cursor.close();

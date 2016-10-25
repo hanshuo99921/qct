@@ -115,7 +115,7 @@ public class ReceiptActivity extends Activity {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				// TODO Auto-generated method stub
 				if (keyCode == KeyEvent.KEYCODE_ENTER) {
-					// ×Ô¼ºÉè¶¨µÄÊÂ¼ş
+					// è‡ªå·±è®¾å®šçš„äº‹ä»¶
 					yyjtmEditText.setFocusable(true);
 					yyjtmEditText.setFocusableInTouchMode(true);
 					yyjtmEditText.requestFocus();
@@ -138,7 +138,7 @@ public class ReceiptActivity extends Activity {
 						yyjtm = yyjtm.replaceAll("\\s*", "");
 						yyjtmEditText.setText(yyjtm);
 						if (yyjtm.length() >= 12 && yyjtm.length() <= 13) {
-							// µ½ºóÌ¨·şÎñÆ÷²éÑ¯Ô­ÓÊ¼şÌõÂë¶ÔÓ¦µÄÊÕ¡¢¼Ä¼şÈËĞÅÏ¢
+							// åˆ°åå°æœåŠ¡å™¨æŸ¥è¯¢åŸé‚®ä»¶æ¡ç å¯¹åº”çš„æ”¶ã€å¯„ä»¶äººä¿¡æ¯
 							String url = AppConst.Server_URL + "get_yyjxx_by_tm.php?tm=" + yyjtm;
 							Log.d(TAG, "url -> " + url + " <-");
 							jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
@@ -169,7 +169,7 @@ public class ReceiptActivity extends Activity {
 												saveButton.setEnabled(true);
 											} else {
 												Toast.makeText(context,
-														"ÓÊ¼ş" + yyjtm + "ÒÑ×ö¹ı»ØÖ´£¡»ØÖ´ÌõÂëÎª£º" + response.getString("hztm"),
+														"é‚®ä»¶" + yyjtm + "å·²åšè¿‡å›æ‰§ï¼å›æ‰§æ¡ç ä¸ºï¼š" + response.getString("hztm"),
 														Toast.LENGTH_LONG).show();
 												hztmEditText.selectAll();
 											}
@@ -195,13 +195,13 @@ public class ReceiptActivity extends Activity {
 										Log.e("TAG", new String(htmlBodyBytes), error);
 										Toast.makeText(context, new String(htmlBodyBytes), Toast.LENGTH_LONG).show();
 									} else {
-										Toast.makeText(context, "ÍøÂç´íÎó£¡Çë¼ì²éºóÖØÊÔ¡£", Toast.LENGTH_LONG).show();
+										Toast.makeText(context, "ç½‘ç»œé”™è¯¯ï¼è¯·æ£€æŸ¥åé‡è¯•ã€‚", Toast.LENGTH_LONG).show();
 									}
 								}
 							});
 							queue.add(jsonObjectRequest);
 						} else {
-							Toast.makeText(context, "ÓÊ¼şÌõÂë²»¹æ·¶£¡", Toast.LENGTH_LONG);
+							Toast.makeText(context, "é‚®ä»¶æ¡ç ä¸è§„èŒƒï¼", Toast.LENGTH_LONG);
 							yyjtmEditText.setFocusable(true);
 							yyjtmEditText.setFocusableInTouchMode(true);
 							yyjtmEditText.requestFocus();

@@ -49,43 +49,41 @@ public class GetPdxx implements Runnable {
 			}
 		};
 
-		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null,
-				new Response.Listener<JSONObject>() {
-					@Override
-					public void onResponse(JSONObject response) {
-						try {
-							Log.d("TAG", "ÉĞÎ´½ÓÊÕµÄÅÉµ¥ÊıÁ¿£º"+response.getJSONObject("rows")
-									.getString("num"));
-							// final PdxxServiceImpl pdxxService = new
-							// PdxxServiceImpl(
-							// applicationContext);
-							// long num = pdxxService.getCount();
-							DemoApplication app = (DemoApplication) applicationContext;
-							int num = Integer.parseInt( String.valueOf(app.get("num")));
-							// String num=(String) app.get("num");
-							Log.d(TAG, "ÒÑ¾­»ñÈ¡µ½±¾»úµ«ÉĞÎ´½ÓÊÕµÄÅÉµ¥ÌõÊınum£º"+num);
+		JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
+			@Override
+			public void onResponse(JSONObject response) {
+				try {
+					// Log.d("TAG", "å°šæœªæ¥æ”¶çš„æ´¾å•æ•°é‡ï¼š"+response.getJSONObject("rows")
+					// .getString("num"));
+					// final PdxxServiceImpl pdxxService = new
+					// PdxxServiceImpl(
+					// applicationContext);
+					// long num = pdxxService.getCount();
+					DemoApplication app = (DemoApplication) applicationContext;
+					int num = Integer.parseInt(String.valueOf(app.get("num")));
+					// String num=(String) app.get("num");
+					// Log.d(TAG, "å·²ç»è·å–åˆ°æœ¬æœºä½†å°šæœªæ¥æ”¶çš„æ´¾å•æ¡æ•°numï¼š" + num);
 
-							int i = Integer.valueOf(response.getJSONObject(
-									"rows").getString("num"));	//ºóÌ¨ÅÉ¸øµ±Ç°À¿ÊÕÔ±Î´½ÓÊÕµÄÅÉµ¥Êı
-							Log.d(TAG, "ºóÌ¨ÅÉ¸øµ±Ç°À¿ÊÕÔ±Î´½ÓÊÕµÄÅÉµ¥Êıi£º" + i);
-							if (i > num) {
-								app.put("m", num);
-								app.put("n", i);
-								Log.d(TAG, "ÒÑ¾­»ñÈ¡µ½±¾»úµ«ÉĞÎ´½ÓÊÕµÄÅÉµ¥ÌõÊım : " + app.get("m"));
-								Log.d(TAG, "ºóÌ¨ÅÉ¸øµ±Ç°À¿ÊÕÔ±Î´½ÓÊÕµÄÅÉµ¥Êın : " + app.get("n"));
-								GetPdxxmx gp = new GetPdxxmx(applicationContext);
-								gp.execute();
+					int i = Integer.valueOf(response.getJSONObject("rows").getString("num")); // åå°æ´¾ç»™å½“å‰æ½æ”¶å‘˜æœªæ¥æ”¶çš„æ´¾å•æ•°
+					// Log.d(TAG, "åå°æ´¾ç»™å½“å‰æ½æ”¶å‘˜æœªæ¥æ”¶çš„æ´¾å•æ•°iï¼š" + i);
+					if (i > num) {
+						app.put("m", num);
+						app.put("n", i);
+						// Log.d(TAG, "å·²ç»è·å–åˆ°æœ¬æœºä½†å°šæœªæ¥æ”¶çš„æ´¾å•æ¡æ•°m : " + app.get("m"));
+						// Log.d(TAG, "åå°æ´¾ç»™å½“å‰æ½æ”¶å‘˜æœªæ¥æ”¶çš„æ´¾å•æ•°n : " + app.get("n"));
+						GetPdxxmx gp = new GetPdxxmx(applicationContext);
+						gp.execute();
 
-								app.put("num", i + "");
-							}
-
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-
+						app.put("num", i + "");
 					}
-				}, errorListener);
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		}, errorListener);
 		GetPdxx_queue.add(jsonObjectRequest);
 
 	}

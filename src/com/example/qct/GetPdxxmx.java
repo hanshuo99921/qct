@@ -53,7 +53,7 @@ public class GetPdxxmx {
 	}
 
 	public void execute() {
-		// »ñÈ¡Ô¶³ÌÊı¾İ
+		// è·å–è¿œç¨‹æ•°æ®
 		GetPdxxmx_queue = Volley.newRequestQueue(context);
 		app = (DemoApplication) context;
 		int m = (Integer) app.get("m");
@@ -67,7 +67,7 @@ public class GetPdxxmx {
 			public void onResponse(JSONObject response) {
 				// TODO Auto-generated method
 				// stub
-				// ¸üĞÂ±¾µØÊı¾İ
+				// æ›´æ–°æœ¬åœ°æ•°æ®
 				Tpdxx pdxx = new Tpdxx();
 				try {
 					int total = response.getInt("total");
@@ -106,21 +106,16 @@ public class GetPdxxmx {
 							SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
 							db.insert("pdxx", null, values);
 							// pdxxService.save(pdxx);
-							
+
 							db.close();
 						}
 						showToast(total);
 						showNotification(total);
 
 						Lpdxx = pdxxService.find(1, 20);
-						for (Tpdxx t : Lpdxx) {
-							Log.d(TAG, t.toString());
-						}
-						// Intent intent = new Intent();
-						// intent.setClass(context, MainActivity2.class);
-						// intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//
-						// Ä¬ÈÏµÄÌø×ªÀàĞÍ,½«Activity·Åµ½Ò»¸öĞÂµÄTaskÖĞ
-						// context.startActivity(intent);
+						// for (Tpdxx t : Lpdxx) {
+						// Log.d(TAG, t.toString());
+						// }
 					}
 
 				} catch (JSONException e) {
@@ -150,11 +145,11 @@ public class GetPdxxmx {
 
 		TextView main_infoTextView = (TextView) inflater.inflate(R.layout.activity_imitate_taobao, null).findViewById(
 				R.id.main_info);
-		main_infoTextView.setText("ÄúÓĞ" + total + "ÌõĞÅÏ¢´ı´¦Àí£¡");
+		main_infoTextView.setText("æ‚¨æœ‰" + total + "æ¡ä¿¡æ¯å¾…å¤„ç†ï¼");
 
 		// set the text in the view
 		TextView tv = (TextView) view.findViewById(R.id.message);
-		tv.setText("ÄúÓĞ" + total + "ÌõĞÅÏ¢´ı´¦Àí£¡");
+		tv.setText("æ‚¨æœ‰" + total + "æ¡ä¿¡æ¯å¾…å¤„ç†ï¼");
 
 		// show the toast
 		Toast toast = new Toast(context);
@@ -170,8 +165,8 @@ public class GetPdxxmx {
 	protected void showNotification(int total) {
 
 		NotificationManager nm = (NotificationManager) context.getSystemService("notification");
-		CharSequence from = "ÏµÍ³ÌáÊ¾£º";
-		CharSequence message = "ÄúÓĞ" + total + "ÌõĞÅÏ¢´ı´¦Àí£¡";
+		CharSequence from = "ç³»ç»Ÿæç¤ºï¼š";
+		CharSequence message = "æ‚¨æœ‰" + total + "æ¡ä¿¡æ¯å¾…å¤„ç†ï¼";
 
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0, new Intent(context,
 				IncomingMessageView.class), 0);

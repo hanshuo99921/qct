@@ -15,12 +15,12 @@ public class PreferencesService {
 	}
 
 	/**
-	 * 保存参数
+	 * 淇濆瓨鍙傛暟
 	 * 
 	 * @param ID
-	 *            登录ID
+	 *            鐧诲綍ID
 	 * @param password
-	 *            登录密码
+	 *            鐧诲綍瀵嗙爜
 	 */
 	public void save(String id, String password) {
 		SharedPreferences preferences = context.getSharedPreferences("qct",
@@ -32,7 +32,7 @@ public class PreferencesService {
 	}
 
 	/**
-	 * 获取各项配置参数
+	 * 鑾峰彇鍚勯」閰嶇疆鍙傛暟
 	 * 
 	 * @return
 	 */

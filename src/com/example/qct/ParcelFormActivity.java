@@ -215,29 +215,6 @@ public class ParcelFormActivity extends Activity {
 					zfy_EditText.setText(zfy);
 
 				}
-				// else {
-				// bjf_EditText.setText("");
-				//
-				// zfy = zfy_EditText.getText().toString();
-				// qtf = qtf_EditText.getText().toString();
-				// yf = yf_EditText.getText().toString();
-				// int y = 0;
-				// if (yf.length() > 0) {
-				// y = Integer.valueOf(yf);
-				// }
-				// double q = 0;
-				// if (qtf.length() > 0) {
-				// q = Double.valueOf(qtf);
-				// }
-				// double z = q + y;
-				// if (z == 0) {
-				// zfy = "";
-				// } else {
-				// zfy = String.valueOf(z);
-				// }
-				// Log.d(TAG, "zfy->" + zfy + "<-");
-				// zfy_EditText.setText(zfy);
-				// }
 			}
 
 			@Override
@@ -258,10 +235,6 @@ public class ParcelFormActivity extends Activity {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				// TODO Auto-generated method stub
-				// zfy = zfy_EditText.getText().toString();
-				// qtf = qtf_EditText.getText().toString();
-				// yf = yf_EditText.getText().toString();
-				// bjf = bjf_EditText.getText().toString();
 				int b = 0;
 				int y = 0;
 				double q = 0;
@@ -316,10 +289,6 @@ public class ParcelFormActivity extends Activity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				// TODO Auto-generated method stub
 				Log.d(TAG, s.toString());
-				// zfy = zfy_EditText.getText().toString();
-				// qtf = qtf_EditText.getText().toString();
-				// yf = yf_EditText.getText().toString();
-				// bjf = bjf_EditText.getText().toString();
 				int b = 0;
 				int y = 0;
 				double q = 0;

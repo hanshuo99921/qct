@@ -53,7 +53,7 @@ public class ScrollView1 extends ActionBarActivity {
 			i = i + 1;
 			TextView textView = (TextView) new TextView(this);
 			String str = i + " ";
-			str += "ÁªÏµÈË£º" + t.getJjrname() + " ÁªÏµµç»°£º" + t.getJjrtel();
+			str += "è”ç³»äººï¼š" + t.getJjrname() + " è”ç³»ç”µè¯ï¼š" + t.getJjrtel();
 			textView.setText(str);
 			LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
 					LinearLayout.LayoutParams.FILL_PARENT,
@@ -61,19 +61,19 @@ public class ScrollView1 extends ActionBarActivity {
 			lin.addView(textView, p);
 
 			Button buttonView = new Button(this);
-			buttonView.setText("µØÖ·£º" + t.getJjraddr() + "\nÅÉµ¥ID£º" + t.getPdid()
-					+ "\n±¸×¢£º" + t.getMemo() + "\nÏÂ·¢Ê±¼ä£º" + t.getXfrq() + " "
+			buttonView.setText("åœ°å€ï¼š" + t.getJjraddr() + "\næ´¾å•IDï¼š" + t.getPdid()
+					+ "\nå¤‡æ³¨ï¼š" + t.getMemo() + "\nä¸‹å‘æ—¶é—´ï¼š" + t.getXfrq() + " "
 					+ t.getXfsj());
 			lin.addView(buttonView, p);
-			buttonView.setOnClickListener(new Button.OnClickListener() {// ´´½¨¼àÌı
+			buttonView.setOnClickListener(new Button.OnClickListener() {// åˆ›å»ºç›‘å¬
 						public void onClick(View v) {
 							Intent intent = new Intent();
 
 							Button bv = (Button) v;
 
-							// Intent¿ÉÒÔÔÚ²»Í¬µÄÓ¦ÓÃ³ÌĞòµÄActivity·¢ËÍÊı¾İ
+							// Intentå¯ä»¥åœ¨ä¸åŒçš„åº”ç”¨ç¨‹åºçš„Activityå‘é€æ•°æ®
 
-							DemoApplication myApp = ((DemoApplication) getApplicationContext());// »ñµÃÎÒÃÇµÄÓ¦ÓÃ³ÌĞòMyApp
+							DemoApplication myApp = ((DemoApplication) getApplicationContext());// è·å¾—æˆ‘ä»¬çš„åº”ç”¨ç¨‹åºMyApp
 							myApp.setGlobalVariable((String) bv.getText());
 
 							Bundle bundle = new Bundle();
@@ -83,9 +83,9 @@ public class ScrollView1 extends ActionBarActivity {
 
 							intent.putExtras(bundle);
 							// intent.putExtra("pdid", 1).putExtra("jjraddr",
-							// "»×»×¼±¿ÚÁî²»");
+							// "è›”è›”æ€¥å£ä»¤ä¸");
 
-							intent.setClass(ScrollView1.this, List12.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+							intent.setClass(ScrollView1.this, List12.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 							intent.addFlags(intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 							startActivity(intent);
 

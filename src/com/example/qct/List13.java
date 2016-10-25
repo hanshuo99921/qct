@@ -38,7 +38,7 @@ public class List13 extends ActionBarActivity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setClass(context, CaptureActivity.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+				intent.setClass(context, CaptureActivity.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 				intent.addFlags(intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 				startActivity(intent);
 			}

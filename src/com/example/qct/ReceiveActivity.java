@@ -88,7 +88,7 @@ public class ReceiveActivity extends ListActivity implements OnClickListener, On
 							public void onClick(DialogInterface dialog, int whichButton) {
 
 								/* User clicked OK so do some stuff */
-								// É¾³ı
+								// åˆ é™¤
 								mStrings.remove(position);
 								Log.d(TAG, mStrings.toString());
 								mAdapter.notifyDataSetChanged();
@@ -105,7 +105,7 @@ public class ReceiveActivity extends ListActivity implements OnClickListener, On
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setClass(context, CaptureActivity.class);// ´ÓÄÄÀïÌøµ½ÄÄÀï
+				intent.setClass(context, CaptureActivity.class);// ä»å“ªé‡Œè·³åˆ°å“ªé‡Œ
 				Bundle mbundle = bundle;
 				if (mbundle == null) {
 					mbundle = new Bundle();
@@ -168,9 +168,9 @@ public class ReceiveActivity extends ListActivity implements OnClickListener, On
 							mAdapter.notifyDataSetChanged();
 							JSONArray tmArray = (JSONArray) response.getJSONArray("wjstm");
 							int jsjs = response.getInt("jsjs");
-							String msg = "±¾´Î½ÓÊÕ³É¹¦" + jsjs + "¼ş!";
+							String msg = "æœ¬æ¬¡æ¥æ”¶æˆåŠŸ" + jsjs + "ä»¶!";
 							if (tmArray.length() > 0) {
-								msg += "\n½ÓÊÕÊ§°Ü" + tmArray.length() + "¼ş£¡";
+								msg += "\næ¥æ”¶å¤±è´¥" + tmArray.length() + "ä»¶ï¼";
 								for (int i = 0; i < tmArray.length(); i++) {
 									mStrings.add(tmArray.getString(i));
 								}
@@ -196,9 +196,9 @@ public class ReceiveActivity extends ListActivity implements OnClickListener, On
 						Log.e(TAG, error.getMessage(), error);
 					}
 				}) {
-					// ×¢Òâ´Ë´¦overrideµÄgetParams()·½·¨,ÔÚ´Ë´¦ÉèÖÃpostĞèÒªÌá½»µÄ²ÎÊı¸ù±¾²»Æğ×÷ÓÃ
-					// ±ØĞëÏóÉÏÃæÄÇÑù,¹¹³ÉJSONObjectµ±×öÊµ²Î´«ÈëJsonObjectRequest¶ÔÏóÀï
-					// ËùÒÔÕâ¸ö·½·¨ÔÚ´Ë´¦ÊÇ²»ĞèÒªµÄ
+					// æ³¨æ„æ­¤å¤„overrideçš„getParams()æ–¹æ³•,åœ¨æ­¤å¤„è®¾ç½®postéœ€è¦æäº¤çš„å‚æ•°æ ¹æœ¬ä¸èµ·ä½œç”¨
+					// å¿…é¡»è±¡ä¸Šé¢é‚£æ ·,æ„æˆJSONObjectå½“åšå®å‚ä¼ å…¥JsonObjectRequestå¯¹è±¡é‡Œ
+					// æ‰€ä»¥è¿™ä¸ªæ–¹æ³•åœ¨æ­¤å¤„æ˜¯ä¸éœ€è¦çš„
 					// @Override
 					// protected Map<String, String> getParams() {
 					// Map<String, String> map = new HashMap<String, String>();
@@ -237,7 +237,7 @@ public class ReceiveActivity extends ListActivity implements OnClickListener, On
 		editText.setOnKeyListener(new View.OnKeyListener() {
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				if (keyCode == KeyEvent.KEYCODE_ENTER) {
-					// ×Ô¼ºÉè¶¨µÄÊÂ¼ş
+					// è‡ªå·±è®¾å®šçš„äº‹ä»¶
 					btn_input.performClick();
 				}
 				return false;
